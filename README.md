@@ -12,7 +12,7 @@ https://github.com/arcplg/html-css-style-guide
     - CSS側の記述
 - **[開発環境ガイド](README_OPS.md)**
     - エディターの設定、開発環境のアーキテクチャ
-- **[コーディング設定シート](CODING_CHECK.md)**
+- **[コーディング設定シート](https://docs.google.com/spreadsheets/d/16MCcsQESgk16r9Nh8RwrPe3L3d1ahOWRtP2I8nQHuqw/edit#gid=1764403400)**
     - 依頼する、作業する前に確認するチェックシート
 
 # 前段
