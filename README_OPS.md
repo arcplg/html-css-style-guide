@@ -22,3 +22,7 @@ todo
 # static 環境
 # WordPress 環境
 # Vue/Nuxt 環境
+
+gulp
+
+macのローカルネットワークでのスマホ実機確認方法
