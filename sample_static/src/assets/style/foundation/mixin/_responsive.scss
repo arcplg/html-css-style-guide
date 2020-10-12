@@ -1,0 +1,32 @@
+// min-width
+$breakpoint-up: (
+  "pc": "screen and (min-width: 769px)"
+) !default;
+
+// max-width
+$breakpoint-down: (
+  "sp": "screen and (max-width: 768px)"
+) !default;
+
+@mixin mq-up($breakpoint) {
+  @media #{map-get($breakpoint-up, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin mq-down($breakpoint) {
+  @media #{map-get($breakpoint-down, $breakpoint)} {
+    @content;
+  }
+}
+
+//使用例
+// .foo {
+//   color: blue;
+//   @include mq_up(pc) { // pcより大きい場合
+//     color: yellow;
+//   }
+//   @include mq_down(sm) { // smより小さい場合=sm
+//     color: red;
+//   }
+// }
