@@ -1,0 +1,23 @@
+.l-body {
+  display: flex;
+  padding: 20px 0;
+  background-color: #ffd;
+}
+
+.l-main {
+  padding: 20px 0;
+  background-color: #dfd;
+}
+
+.l-content {
+  min-width: $min_width_pc;
+  max-width: $max_width_pc;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 20px;
+  background-color: $color-bg-content;
+
+  @include mq_down(sp) {
+    min-width: auto;
+  }
+}

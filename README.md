@@ -1,5 +1,28 @@
 # **ARCHIPELAGO HTML/CSS スタイルガイド**
 
+- [**ARCHIPELAGO HTML/CSS スタイルガイド**](#archipelago-htmlcss-スタイルガイド)
+- [文書構成](#文書構成)
+- [前段](#前段)
+- [方針](#方針)
+- [おさえておきたいトピック](#おさえておきたいトピック)
+  - [開発/環境トピック](#開発環境トピック)
+  - [HTML セマンティック / SEO トピック](#html-セマンティック--seo-トピック)
+  - [HTML / [CSS](README_CSS.md) 記述トピック](#html--css-記述トピック)
+- [プロジェクトごとの仕様確認](#プロジェクトごとの仕様確認)
+  - [ターゲット環境](#ターゲット環境)
+  - [レスポンシブル / ブレークポイント仕様](#レスポンシブル--ブレークポイント仕様)
+    - [画面サイズ参考](#画面サイズ参考)
+    - [ブレークポイント標準設定(2020/10/08現在)](#ブレークポイント標準設定20201008現在)
+  - [フォント](#フォント)
+    - [フォント標準設定(2020/10/08現在)](#フォント標準設定20201008現在)
+  - [Webアイコンフォント](#webアイコンフォント)
+- [デザインカンプ (Design Comprehensive Layout)](#デザインカンプ-design-comprehensive-layout)
+  - [画像コンバートに関して](#画像コンバートに関して)
+  - [その他](#その他)
+- [セマンテックWebについて](#セマンテックwebについて)
+    - [セマンティックなclass名をつける](#セマンティックなclass名をつける)
+    - [マルチクラスのデメリット](#マルチクラスのデメリット)
+
 # 文書構成
 
 https://github.com/arcplg/html-css-style-guide
@@ -12,6 +35,7 @@ https://github.com/arcplg/html-css-style-guide
     - CSS側の記述
 - **[開発環境ガイド](README_OPS.md)**
     - エディターの設定、開発環境のアーキテクチャ
+    - sample_static にサンプルと[README.md](sample_static/README.md)があります
 - **[コーディング設定シート](https://docs.google.com/spreadsheets/d/16MCcsQESgk16r9Nh8RwrPe3L3d1ahOWRtP2I8nQHuqw/edit#gid=1764403400)**
     - 依頼する、作業する前に確認するチェックシート
 
@@ -51,10 +75,12 @@ https://github.com/arcplg/html-css-style-guide
   * ブラウザ固有のベンダープレフィックスは手で書かず、自動で記述してくれる開発環境を利用する
 * lintを必ず通し、エラーがない状態でコミットする（VSCで自動化、開発環境ガイド参照）
 * スマホなどのデバイスの実機確認を必ず行う
-  * 時間がない場合、クラウドの[Browser Stack](https://www.browserstack.com/)（契約済）を利用する
+  * 時間がない場合、クラウドの[Browser Stack](https://www.browserstack.com/)（契約済）を利用する。localIPでも利用する場合chromeに下記拡張機能を入れてください。
+  https://chrome.google.com/webstore/detail/browserstack-local/mfiddfehmfdojjfdpfngagldgaaafcfo?hl=ja
 
-## [HTML](README_HTML.md)/[CSS](README_CSS.md)トピック
+## [HTML](README_HTML.md) セマンティック / SEO トピック
   * `セマンティック`に記述する（詳細後述）
+  * できる限りHTML5の構造化タグ( header,nav,footer,section,article )で記述する
   * `<h1>`タグはページ内で1つにし、原則トップページではロゴアイコン周りやサイト名に使い、他のページはヘッダータイトルに設定する
   * ヘッダーの順番 h1 h2 h3 ... は守ってください順番の話
   * metaセクションを設定する
@@ -69,6 +95,8 @@ https://github.com/arcplg/html-css-style-guide
       <meta property="og:url" content="ページのsull URL">
       <meta property="og:image" content="サムネイル画像のfull URL">
       ```
+  * `<link rel=”canonical”>`を適切に記述
+## [HTML](README_HTML.md) / [CSS](README_CSS.md) 記述トピック
   * `<head>`内では CSSファイルの後にJSファイルをincludeする
   * HTMLのidは極力使わない（CSSセレクターで#idは禁止、jsで使う場合はOK）
   * ベクトルにできる画像はなるべくSVGで保存する
@@ -83,8 +111,8 @@ https://github.com/arcplg/html-css-style-guide
   * タグ（要素セレクタ）はCSSで直接使わず、必ずクラスを付与する
   * ボックスモデルは原則`box-sizing: border-box`（widthはpaddingを含む設定）にする
   * CSSキャッシュの対策
-    * できる限り、お客さま（ユーザー）に毎回ブラウザをスーパーリロードする必要がないように、CSSファイル名の後ろに一意のパラメータを付与する ex.`file.css?v=202010090954`
-    * todo: Webpackで自動化構築中
+    * お客さま（ユーザー）に毎回ブラウザをスーパーリロードする必要がないように、できる限りCSSファイル名の後ろに一意のパラメータを付与する ex.`file.css?v=202010090954`
+    * なにかしらHTMLテンプレートエンジンを組み込んでいる場合、自動化を推奨
 
 
 # プロジェクトごとの仕様確認
@@ -119,9 +147,11 @@ https://github.com/arcplg/html-css-style-guide
 注意：レスポンシブルと幅が可変かどうかは別の話であり、別々に決めなくてはいけません。
 
 ### 画面サイズ参考
-* XPERIA : 360 x 640
+* XPERIA : `360` x 640
 * iPhone 678 : 375 x 667
 * iPhone XR/XS : 414 x 896
+* iPhone 12/pro : 390 x 884
+* iPhone pro max : `428` x 926
 * iPad/mini : 768 x 1024
 * iPad Air : 834 x 1112
 * iPad Pro 11" : 834 x 1194
@@ -141,7 +171,7 @@ https://github.com/arcplg/html-css-style-guide
 		  a+) `xxxpx` max-width まで可変幅、それ以上は固定
 * ブレークポイント2つ3モードの場合
   * ブレークポイント
-    * モバイル `414px` まで : タブレット `415px` から `896px` まで : PC `897px` から
+    * モバイル `428px` まで : タブレット `429px` から `896px` まで : PC `897px` から
   * 幅仕様
     * モバイル `可変幅100%` : タブレット `可変幅100%` : PC `固定幅1100px`(上記参照)
 
@@ -220,7 +250,7 @@ HTMLとCSSの役割をしっかりと分ける概念を意識するようにし�
 
 ### セマンティックなclass名をつける
 
-見た目や振る舞いからではなく、目的や役割に基づいて名前をつけます。
+`<ul><li>`はリストで使用するように、見た目や振る舞いからではなく、目的や役割に基づいて名前をつけます。
 要は例えば、red-box(赤) や left-box(左エリア) のようなclass名をつけず、post-box(郵便箱)、image-box(画像エリア)などの目的や役割に基づいてclass名をつけてください。
 
 

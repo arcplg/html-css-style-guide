@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title></title>
+  <meta name="description" content="" />
+
+  <meta property="og:title" content="" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="" />
+  <meta property="og:site_name" content="" />
+  <meta property="og:description" content="" />
+  <meta property="fb:app_id" content="" />
+
+  <link rel="stylesheet" href="/assets/css/app.css" />
+
+  <script>
+    function getWindowSize() {
+      return window.innerWidth;
+    }
+    function windowResizeFunc(){
+      document.getElementById('jid_width').innerHTML = getWindowSize() + 'px';
+    }
+    window.addEventListener("resize", windowResizeFunc);
+  </script>
+</head>
+
+<body>
+  <header class="p-header u-layerLabel" data-label="header">
+    <div class="l-content u-layerLabel" data-label="l-content">
+      <nav class="p-gnav">
+        <ul class="p-gnav_list">
+          <li class="p-gnav_list_item is-logo">
+            <a href="index.html">
+              <img src="assets/images/cmn_logo.png" alt="ARCHIPELAGO Inc." />
+            </a>
+          </li>
+          <li class="p-gnav_list_item">
+            <a href="layout1.html">Layout1</a>
+          </li>
+          <li class="p-gnav_list_item">
+            <a href="layout2.html">Layout2</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="l-body u-layerLabel" data-label="l-body">
+    <main class="l-main u-layerLabel" data-label="l-main"">
+      <div class="l-content u-layerLabel" data-label="l-content">
+        <div class="c-pageHeading">
+          <h1 class="c-pageHeading_title">Page Title: Layout 1</h1>
+          <p class="c-pageHeading_desc">
+            page descrition
+          </p>
+          <div class="c-testInfo">
+            <div>
+              current width: <span id="jid_width" class="c-testInfo_label"></span>
+            </div>
+            <div class="u-pc-only">
+              breakpoint: <span class="c-testInfo_label">PC(769px above)</span>
+              <div class="u-pc-only is-min">
+                width: <span class="c-testInfo_label">PC fix mode(1000px)</span>
+              </div>
+              <div class="u-pc-only is-liquid">
+                width: <span class="c-testInfo_label">PC liquid mode(1001px - 1200px)</span>
+              </div>
+              <div class="u-pc-only is-max">
+                width: <span class="c-testInfo_label">PC max mode(1201px - )</span>
+              </div>
+            </div>
+            <div class="u-sp-only">
+              breakpoint: <span class="c-testInfo_label">SP(768px below)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="p-section u-layerLabel" data-label="section">
+        <div class="l-content u-layerLabel" data-label="l-content">
+          <h2 class="p-section_title">Section1 Title</h2>
+          <p class="c-pageHeading_desc">
+            This is Section DESC
+          </p>
+          <p class="c-paragraph">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eu molestie enim. Donec nunc lorem,
+            tincidunt sagittis accumsan at, finibus vitae odio. In sem nulla, dictum et velit malesuada, gravida
+            volutpat justo. Phasellus suscipit iaculis nulla ut porttitor. Fusce posuere magna ut ullamcorper
+            consectetur. Ut sed nisi risus. Praesent vehicula semper risus, ac imperdiet purus vehicula dignissim.
+            Aenean scelerisque facilisis condimentum. Cras consectetur ut risus vitae venenatis.<br>
+            Cras luctus odio sed sem cursus fermentum. Sed quis lorem interdum, ornare lacus sed, fringilla lorem.
+            Mauris tempus et quam sit amet venenatis. Praesent a quam at metus pharetra fringilla sit amet quis lacus.
+            Pellentesque eu libero varius, dapibus elit ut, vulputate ex. Integer mollis rutrum arcu, quis cursus purus.
+            Curabitur nisi arcu, sodales eget semper nec, imperdiet sed leo. Nulla dapibus vitae neque a finibus.<br>
+            Nunc purus sem, bibendum eu pharetra vitae, lobortis ornare velit. Suspendisse pretium tellus ac
+            sollicitudin sagittis. In id sem non libero tincidunt ullamcorper et ac nisl. Morbi sed efficitur lacus, in
+            venenatis ex. Quisque pulvinar non ipsum sed pharetra. Sed vulputate, magna blandit tempus sagittis, velit
+            metus lacinia felis, id iaculis libero lectus vel justo. Nunc nec ante et dolor fermentum convallis. Fusce
+            mi leo, dapibus ut hendrerit sit amet, pharetra eu augue. Nam aliquam lacus nec nibh egestas placerat.
+          </p>
+        </div>
+      </section>
+
+      <section class="p-section u-layerLabel" data-label="section">
+        <div class="l-content u-layerLabel" data-label="l-content">
+          <h2 class="p-section_title">Section2 Title</h2>
+          <p class="c-pageHeading_desc">
+            This is Section DESC
+          </p>
+          <p class="c-paragraph">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eu molestie enim. Donec nunc lorem,
+            tincidunt sagittis accumsan at, finibus vitae odio. In sem nulla, dictum et velit malesuada, gravida
+            volutpat justo. Phasellus suscipit iaculis nulla ut porttitor. Fusce posuere magna ut ullamcorper
+            consectetur. Ut sed nisi risus. Praesent vehicula semper risus, ac imperdiet purus vehicula dignissim.
+            Aenean scelerisque facilisis condimentum. Cras consectetur ut risus vitae venenatis.
+          </p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="p-footer u-layerLabel" data-label="footer">
+    <div class="l-content u-layerLabel" data-label="l-content">
+      <address>ARCHIPELAGO Inc. All RIghts Reserved.</address>
+    </div>
+  </footer>
+</body>
+
+</html>

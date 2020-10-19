@@ -1,0 +1,15 @@
+.p-gnav {
+  &_list {
+    display: flex;
+    align-items: flex-end;
+
+    &_item {
+      padding: 5px;
+      border: 1px solid #999;
+
+      &.is-logo {
+        width: 150px;
+      }
+    }
+  }
+}

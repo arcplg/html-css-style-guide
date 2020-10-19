@@ -24,15 +24,28 @@
   * WebPack
     * Vue/Nuxt.js
 
+## ブラウザ対象の設定(browserslist)
+package.jsonの以下をプロジェクトごとに設定してください。
+下記はデフォルト設定です。
 
-# 　VSC Editor (Visual Source Code) 環境
+```js:package.json
+...
+"browserslist": [
+  ">2% in JP, ie >= 11, ios_saf >= 12, Firefox ESR"
+]
+...
+```
+
+# VSC Editor (Visual Source Code) 環境
 
 ## EditorConfigを使ってコーディングスタイルを統一
 
 インデントや改行コードなど、コーディングスタイルを統一するための仕組みです。
-EditorConfigが有効になっているエディタは、プロジェクトディレクトリに`.editorconfig`があればそのディレクトリ以下のファイルすべてにコーディングスタイルを適用します。Gitの管理対象に加えておけば、他のユーザはその設定をそのまま共有することができます。
+EditorConfigが有効になっているエディタは、プロジェクトディレクトリに`.editorconfig`があればそのディレクトリ以下のファイルすべてにコーディングスタイルを適用します。Gitの管理対象に加えます。
 
 ## vscodeの設定ファイルをgitで共有
+
+プロジェクトのルートに`.vscode`フォルダとsettings.jsonを置きgitで共有します。
 
 
 ## VSC拡張機能 / 設定
@@ -50,12 +63,15 @@ EditorConfigが有効になっているエディタは、プロジェクトデ�
   * Vue.js のコーディング時必須
 * WordPress Snippet
   * Wordpress のコーディング時必須
-* Markdown Preview Github Styling, Markdown TOC
-  * Markdownで編集する場合必須
 * SVG Viewer
   * SVG画像のプレビュー
 
 ### 推奨拡張機能 / 設定
+* SCSS IntelliSense
+  * SCSSの`variables`, `mixins`, `functions`を補完してくれる
+* IntelliSense for CSS class names in HTML
+  * HTMLの`class`名を補完してくれる
+  * ただし巨大なプロジェクトの場合重いかも
 * Bracket Pair Colorizer
   * (), [], {} などの括弧の開始-閉じるの組み合わせを色を変えて見やすくする。
 * zenkaku
@@ -79,5 +95,8 @@ EditorConfigが有効になっているエディタは、プロジェクトデ�
 ## Vue/Nuxt 環境
 
 # デバッグ
+* スマホなどのデバイスの実機確認を必ず行う
+  * 時間がない場合、クラウドの[Browser Stack](https://www.browserstack.com/)（契約済）を利用する。localIPでも利用する場合chromeに下記拡張機能を入れてください。
+  https://chrome.google.com/webstore/detail/browserstack-local/mfiddfehmfdojjfdpfngagldgaaafcfo?hl=ja
+  * macだと下記設定をすることにより同じネットワーク内ならローカルWebをスマホ実機で確認できます。
 
-macのローカルネットワークでのスマホ実機確認方法

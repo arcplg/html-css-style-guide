@@ -1,6 +1,6 @@
 # SCSS Build Setup
 
-## Buildに必要な環境
+# Buildに必要な環境
 ``` bash
 # 環境構築時のversionは
 # node = 12.18.2
@@ -14,21 +14,24 @@ $ npm install -g yarn
 
 gulpはローカルにインストールされますので、グローバルは必要ありません。
 
-## Build
+# Build
 
 このフォルダに移動してから
 
 ``` bash
-# install dependencies
+# install modlule
 $ yarn install
 ```
 
 
-## Run gulp
+# Run gulp
 
-# ビルド+サーバー＋ファイル監視
+ローカルインストールのみだと、直接gulpコマンドではなく、yarn script 経由で起動します。
+
+``` bash
+#ビルド+サーバー＋ファイル監視
 $ yarn gulp
 
 # ビルドのみ
 $ yarn gulp:sass
-
+```

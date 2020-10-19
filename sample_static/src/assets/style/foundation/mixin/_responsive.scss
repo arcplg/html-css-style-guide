@@ -1,21 +1,21 @@
 // min-width
-$breakpoint-up: (
-  "pc": "screen and (min-width: 769px)"
+$breakpoint_up: (
+  "pc": "screen and (min-width: #{$bp_sp_max_width+1}px)"
 ) !default;
 
 // max-width
-$breakpoint-down: (
-  "sp": "screen and (max-width: 768px)"
+$breakpoint_down: (
+  "sp": "screen and (max-width: #{$bp_sp_max_width}px)"
 ) !default;
 
-@mixin mq-up($breakpoint) {
-  @media #{map-get($breakpoint-up, $breakpoint)} {
+@mixin mq_up($breakpoint) {
+  @media #{map-get($breakpoint_up, $breakpoint)} {
     @content;
   }
 }
 
-@mixin mq-down($breakpoint) {
-  @media #{map-get($breakpoint-down, $breakpoint)} {
+@mixin mq_down($breakpoint) {
+  @media #{map-get($breakpoint_down, $breakpoint)} {
     @content;
   }
 }
