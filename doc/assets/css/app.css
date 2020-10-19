@@ -1,0 +1,307 @@
+/* ----------------------------------------
+ 	reset
+ ---------------------------------------- */
+html,
+body,
+div,
+span,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+img,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+strong,
+sub,
+sup,
+i,
+small,
+address,
+time,
+fieldset,
+form,
+label,
+legend,
+hr,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+header,
+footer,
+nav,
+section,
+article,
+aside,
+figure,
+figcaption,
+canvas,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-style: normal;
+  font-weight: normal;
+  vertical-align: baseline;
+}
+
+article,
+aside,
+figure,
+figcaption,
+footer,
+header,
+nav,
+section {
+  display: block;
+}
+
+*,
+*::before,
+*::after {
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+input,
+textarea,
+button {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+}
+
+input[type="submit"],
+input[type="button"],
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: top;
+}
+
+.clearfix::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  color: #1a1a1a;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+}
+
+.l-body {
+  display: flex;
+  padding: 20px 0;
+  background-color: #ffd;
+}
+
+.l-main {
+  padding: 20px 0;
+  background-color: #dfd;
+}
+
+.l-content {
+  min-width: 1000px;
+  max-width: 1200px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 20px;
+  background-color: #eee;
+}
+
+@media screen and (max-width: 768px) {
+  .l-content {
+    min-width: auto;
+  }
+}
+
+.c-button {
+  display: inline-block;
+  width: 200px;
+  height: 54px;
+  padding: 0;
+  border: none;
+  border-radius: 3px;
+  background-color: #d0d6dc;
+  box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.2);
+  color: color(#101e2a);
+  color: #314257;
+  font-size: 1.4rem;
+  font-weight: bold;
+  line-height: 54px;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+.c-button:hover {
+  opacity: 0.62;
+}
+
+.c-pageHeading_title {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  .c-pageHeading_title {
+    font-size: 24px;
+  }
+}
+
+.c-testInfo {
+  font-size: 22px;
+}
+
+.c-testInfo_label {
+  background-color: #fcc;
+  font-weight: bold;
+}
+
+.c-paragraph {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+@media screen and (max-width: 768px) {
+  .c-paragraph {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+}
+
+.p-header {
+  display: inline-block;
+  position: relative;
+  min-width: 100%;
+  padding: 20px 0;
+  background-color: #ddf;
+}
+
+.p-footer {
+  display: inline-block;
+  position: relative;
+  min-width: 100%;
+  padding: 20px 0;
+  background-color: #ddf;
+}
+
+.p-gnav_list {
+  display: flex;
+  align-items: flex-end;
+}
+
+.p-gnav_list_item {
+  padding: 5px;
+  border: 1px solid #999;
+}
+
+.p-gnav_list_item.is-logo {
+  width: 150px;
+}
+
+.p-section {
+  display: inline-block;
+  min-width: 100%;
+  margin: 10px 0;
+  background-color: #beb;
+}
+
+.p-section_title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  .p-section_title {
+    font-size: 20px;
+  }
+}
+
+.u-layerLabel {
+  position: relative;
+}
+
+.u-layerLabel::before {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 2px 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  content: attr(data-label) "";
+}
+
+@media screen and (max-width: 768px) {
+  .u-pc-only {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1001px) {
+  .u-pc-only.is-min {
+    display: none;
+  }
+}
+
+.u-pc-only.is-liquid {
+  display: none;
+}
+
+@media screen and (min-width: 1001px) and (max-width: 1200px) {
+  .u-pc-only.is-liquid {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .u-pc-only.is-max {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .u-sp-only {
+    display: none;
+  }
+}
