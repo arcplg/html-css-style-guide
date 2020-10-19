@@ -272,6 +272,11 @@ a {
   content: attr(data-label) "";
 }
 
+.u-pc-only {
+  padding-bottom: 20px;
+  overflow: hidden;
+}
+
 @media screen and (max-width: 768px) {
   .u-pc-only {
     display: none;
@@ -298,6 +303,16 @@ a {
   .u-pc-only.is-max {
     display: none;
   }
+}
+
+.u-pc-only_barMin {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 1000px;
+  background-color: #fdd;
+  font-size: 14px;
+  text-align: right;
 }
 
 @media screen and (min-width: 769px) {
