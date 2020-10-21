@@ -95,14 +95,19 @@ EditorConfigが有効になっているエディタは、プロジェクトデ�
 
 
 ## static 環境
+
+`sample_static`にサンプル環境があります。
+
 ## WordPress 環境
+
+todo
+
 ## Vue/Nuxt 環境
+
+todo
 
 # デバッグ
 * スマホなどのデバイスの実機確認を必ず行う
   * 時間がない場合、クラウドの[Browser Stack](https://www.browserstack.com/)（契約済）を利用する。localIPでも利用する場合chromeに下記拡張機能を入れてください。
   https://chrome.google.com/webstore/detail/browserstack-local/mfiddfehmfdojjfdpfngagldgaaafcfo?hl=ja
-  * macだと下記設定をすることにより同じネットワーク内ならローカルWebをスマホ実機で確認できます。
-
-
-静的確認場所
+  * 同じwifiネットワーク内ならローカルWebをスマホ実機で確認できます。

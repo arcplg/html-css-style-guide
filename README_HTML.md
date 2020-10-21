@@ -1,4 +1,4 @@
-# **HTMLコーディング ガイドライン**
+# HTMLコーディング ガイドライン
 
 # HTMLスタイルルール
 
@@ -151,6 +151,12 @@ JSの読み込みは、bodyの最下部はやめて、head内に記述し、以�
   * こちらは完全非同期で読み込むので速いのですが、順番が保証されません。完全に独立したjsのみだけに使用してください。
 
 
+## 外部サイトリンクを `_blank` で開く場合
+
+セキュリティの観点から、以下の`noopener` `noreferrer`を付与してください
+`<a href="{URL}" target="_blank" rel="noopener noreferrer">LINK TEXT</a>`
+
+
 ## 画像にalt属性を必ず入れる
   背景画像のような意味のない画像は対象外
 
@@ -192,13 +198,15 @@ SVGにすると、PC用、SP用、レティナ2xの対応をしなくても良�
 ```
 
 ## 画像,CSS,JSなどの参照ファイル名ルール
-セパレータは原則 `_`(under score)を使う（`-`はNG）
+原則すべて小文字、セパレータは `_`(under score)を使う（`-`はNG）
 
 ```bash
 // NG
+MainLogo.png
 common-logo.png
 
 // OK
+main_logo.png
 common_logo.png
 ```
 

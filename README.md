@@ -40,6 +40,33 @@ https://github.com/arcplg/html-css-style-guide
 # おさえておきたいトピック
 詳細はそれぞれの別途ファイルを参照
 
+## [HTML](README_HTML.md) トピック
+  * `セマンティック`に記述する
+    * 見た目や振る舞いからではなく、目的や役割に基づいてclass名をつける
+    * できる限りHTML5の構造化タグ( header, nav, footer, section, article, etc...)で記述する
+  * `<h1>`要素はページ内で1つにし、原則トップページではロゴアイコン周りやサイト名に使い、他のページはヘッダータイトルに設定する
+  * ヘッダーの順番 h1 h2 h3 ... を守る
+  * metaセクションを設定する
+    * title, description, viewport を適切に設定する
+    * OGP（Open Graph Protocol）は必ず指定する。og:typeはTopと配下で切り替える
+  * ベクトルにできる画像はなるべくSVGで保存する
+  * 画像,CSS,JSなどの参照ファイルのセパレータは原則 `_`(under score)を使う（`-`はNG）
+  * 画像にalt属性を入れる（背景画像のような意味のない画像は対象外）
+  * アイコンはなるべくWebIconFontを利用する（デザイナと相談、わざわざデザインしなくてもいい場合）
+  * CSS/JS キャッシュの対策
+    * お客さま（ユーザー）に毎回ブラウザをスーパーリロードする必要がないように、できる限りインクルードするファイル名の後ろに一意のパラメータを付与する ex.`file.css?v=202010090954`
+    * なにかしらHTMLテンプレートエンジンを組み込んでいる、もしくはphpの場合、自動化してください
+
+## [CSS / STYLE](README_STYLE.md) 記述トピック
+  * idは極力使わない（CSSセレクターで#idは禁止、jsで使う場合はOK）
+  * CSSのセレクターは原則1階層にする。そのため、BEM（の改良）で記述する
+    ```CSS
+      .menu .button {} // NG
+      .menu_button {} // OK
+    ```
+  * CSSの!importantは原則禁止
+  * 要素セレクタ(HTML Tag)はCSSで直接使わず、必ずクラスを付与する
+
 ## [開発/環境トピック](README_OPS.md)
 * エディターは`Visual Studio Code`(VSC)を使用する
   * オートフォーマット設定などVSC設定ファイルを共通でコミットしたい
@@ -54,51 +81,11 @@ https://github.com/arcplg/html-css-style-guide
   * 時間がない場合、クラウドの[Browser Stack](https://www.browserstack.com/)（契約済）を利用する。localIPでも利用する場合chromeに下記拡張機能を入れてください。
   https://chrome.google.com/webstore/detail/browserstack-local/mfiddfehmfdojjfdpfngagldgaaafcfo?hl=ja
 
-## [HTML](README_HTML.md) トピック
-  * `セマンティック`に記述する
-    * できる限りHTML5の構造化タグ( header, nav, footer, section, article, etc...)で記述する
-    * 見た目や振る舞いからではなく、目的や役割に基づいてclass名をつけます
-  * `<h1>`要素はページ内で1つにし、原則トップページではロゴアイコン周りやサイト名に使い、他のページはヘッダータイトルに設定する
-  * ヘッダーの順番 h1 h2 h3 ... を守る
-  * metaセクションを設定する
-    * title, meta description を適切に設定する
-    * viewportを検討し必ず指定する(以下標準)
-      * `<meta name="viewport" content="width=device-width, initial-scale=1">`
-      * meta keywords は要らない
-    * OGP（Open Graph Protocol）は必ず指定する。og:typeはTopと配下で切り替えてください。
-      ```html
-      <meta property="og:title" content="ページのタイトル">
-      <meta property="og:type" content="website"> // top page
-      <meta property="og:type" content="article"> // 配下ページ
-      <meta property="og:url" content="ページのsull URL">
-      <meta property="og:image" content="サムネイル画像のfull URL">
-      ```
-  * `<link rel=”canonical”>`を適切に記述
-  * `<head>`内では CSSファイルの後にJSファイルをincludeする
-  * ベクトルにできる画像はなるべくSVGで保存する
-  * 画像,CSS,JSなどの参照ファイルのセパレータは原則 `_`(under score)を使う（`-`はNG）
-  * 画像にalt属性を入れる（背景画像のような意味のない画像は対象外）
-  * アイコンはなるべくWebIconFontを利用する（デザイナと相談、わざわざデザインしなくてもいい場合）
-  * CSS/JS キャッシュの対策
-    * お客さま（ユーザー）に毎回ブラウザをスーパーリロードする必要がないように、できる限りインクルードするファイル名の後ろに一意のパラメータを付与する ex.`file.css?v=202010090954`
-    * なにかしらHTMLテンプレートエンジンを組み込んでいる、もしくはphpの場合、自動化してください
-
-## [CSS / STYLE](README_STYLE.md) 記述トピック
-  * idは極力使わない（CSSセレクターで#idは禁止、jsで使う場合はOK）
-  * CSSのセレクターは原則1階層にする。そのため、BEM（の改良、後述）で記述する
-    ```CSS
-      .menu .button {} // NG
-      .menu_button {} // OK
-    ```
-  * CSSの!importantは原則禁止
-  * 要素セレクタ(HTML Tag)はCSSで直接使わず、必ずクラスを付与する
-  * ボックスモデルは原則`box-sizing: border-box`（widthはpaddingを含む設定）にする
-
 
 # プロジェクトごとの仕様確認
 下記これらをまとめたのがコーディング設定シートとなります。
 
-## ターゲット環境
+## ターゲット環境・検証ブラウザ
 コーディング前にWindows環境、Machintosh環境、スマートフォンなど対応が必要なブラウザ、端末を明確にします。
 端末ごとのデフォルトフォントに気をつけてください（後述）
 
@@ -118,6 +105,16 @@ https://github.com/arcplg/html-css-style-guide
   * iOS環境
     * iOS 12以降の Safari 最新バージョン
     * iOS 12以降の Google Chrome最新版
+  * Android環境
+    * Andoroid ver.6.0以上の Google Chrome最新版
+* 標準メイン検証ターゲット
+  * Windows環境
+    * Microsoft Internet Explorer 11
+    * Google Chrome 最新バージョン
+  * Macintosh環境
+    * Google Chrome 最新バージョン
+  * iOS環境
+    * iOS 12以降の Safari 最新バージョン
   * Android環境
     * Andoroid ver.6.0以上の Google Chrome最新版
 
@@ -142,6 +139,7 @@ https://github.com/arcplg/html-css-style-guide
 
 ### ブレークポイント標準設定(2020/10/08現在)
 顧客から指定がない場合の推奨ですが、場合に応じて、下記の`この部分`の変更をしてください。
+[sample site](https://arcplg.github.io/html-css-style-guide/layout1.html)
 
 * ブレークポイント1つ2モードの場合(ほとんどの場合これ)
   * ブレークポイント
@@ -202,30 +200,38 @@ body {
 }
 ```
 
+## ファビコン
+素材を決める
+* 16x16,32x32がセットになった`.ico`ファイル（必須）
+* iPhoneやiPadのsafariや、Androidのホーム画面で使用されるアイコン(180x180,必須ではない)
 
+## OGP
+`og:image`の素材を決める
+* 原則 600 x 315 以上 (横幅が 600以上)
+* 高解像度端末に対応させたい場合は倍の 1200 x 630 以上
 
 ## Webアイコンフォント
 * Webサイトで使うアイコンは、可能ならばなるべく、画像ではなくWebアイコンフォントを利用してください。
 * Webアイコンフォントを使う場合は、なるべく一つのセットから選ぶようにしてください
 * さらに可能ならば、使うアイコンのみを読み込むようにしてください
 
-## AMPに対応するか
+## AMPに対応するか決める
 
 
 # デザインカンプ (Design Comprehensive Layout)
 上記のプロジェクト仕様を共有した上でデザイン制作をお願いしてください。
 またできるかぎり、AdobeXD での制作をお願いしてください。
 
-## 画像コンバートに関して
-* PM、デザイナーさんへのお願い事項
-  * 画像化する部分は明確に指定してください。できれば、サイズx2倍対応やファイルサイズについて検討してください。
-  * 幾何学的（写真ではない）画像でベクトル化できるものはベクトル画像にしてください
-   * 画像化を想定している文字も、フォントのままではなく、ベクトル化できるものはベクトル化してください。（デザインファイルを開いたり、なにか操作をしたときに、フォントが変更される場合があるので）
-  * WebPに対応するかどうか
+## その他、PM、デザイナーさんへのお願い事項
 
-## その他
-* PM、デザイナーさんへのお願い事項
-  * 外部フォント含めて、フォントを指定する際はプロジェクト全体で使うフォントリストを作ってください
-  * レスポンシブルのテーブルデザインは、例えば、横スクロールか、縦並びかで大きく作りが変わるので、事前に確定してください。
+### 画像コンバートに関して
+* 画像化する部分は明確に指定してください。できれば、サイズx2倍対応やファイルサイズについて検討・指示してください。
+* 幾何学的（写真ではない）画像でベクトル化できるものはベクトル画像にするか、指示してください
+* 画像化を想定している文字も、フォントのままではなく、ベクトル化できるものはベクトル化してください。（デザインファイルを開いたり、なにか操作をしたときに、フォントが変更される場合があるので）
+* WebPに対応するかどうか
+
+### レスポンシブル・その他
+* レスポンシブルのスマホ版があるかどうか。ない場合、どのようにするかの概要指示をお願いします
+* レスポンシブルのテーブルデザインは、例えば、横スクロールか、縦並びかで大きく作りが変わるので、事前に確定してください。
 
 
