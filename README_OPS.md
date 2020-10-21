@@ -3,7 +3,6 @@
 # 概要
 
 原則、開発環境は`SASS(SCSS)`を使いビルドを行います。
-プロジェクトによりますが、原則、`docker`を利用しないようにします。
 
 ## アーキテクト概要
 
@@ -34,6 +33,11 @@ package.jsonの以下をプロジェクトごとに設定してください。
   ">2% in JP, ie >= 11, ios_saf >= 12, Firefox ESR"
 ]
 ...
+```
+
+対応ブラウザは以下のコマンドで確認できます。
+```bash
+npx browserslist ">2% in JP, ie >= 11, ios_saf >= 12, Firefox ESR"
 ```
 
 # VSC Editor (Visual Source Code) 環境
@@ -100,3 +104,5 @@ EditorConfigが有効になっているエディタは、プロジェクトデ�
   https://chrome.google.com/webstore/detail/browserstack-local/mfiddfehmfdojjfdpfngagldgaaafcfo?hl=ja
   * macだと下記設定をすることにより同じネットワーク内ならローカルWebをスマホ実機で確認できます。
 
+
+静的確認場所
