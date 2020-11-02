@@ -6,7 +6,7 @@
 
 ## アーキテクト概要
 
-* VSC(Visual Source Code)と拡張機能の設定を共有し、なるべく以下自動化を目指します
+* VSC(Visual Studio Code)と拡張機能の設定を共有し、なるべく以下自動化を目指します
   * editorconfig
   * ブラウザ対象の設定
   * リアルタイムチェック(style-Lint)
