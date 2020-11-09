@@ -1,0 +1,59 @@
+.u-layerLabel {
+  position: relative;
+
+  &::before {
+    content: attr(data-label) "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 2px 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+  }
+}
+
+.u-pc-only {
+  padding-bottom: 20px;
+  overflow: hidden;
+
+  @include mq_down(sp) {
+    display: none;
+  }
+
+  &.is-min {
+    @media screen and (min-width: 1001px) {
+      display: none;
+    }
+  }
+
+  &.is-liquid {
+    display: none;
+
+    @media screen and (min-width: 1001px) and (max-width: 1200px) {
+      display: block;
+    }
+  }
+
+  &.is-max {
+    @media screen and (max-width: 1200px) {
+      display: none;
+    }
+  }
+
+  &_barMin {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 1000px;
+    background-color: #fdd;
+    font-size: 14px;
+    text-align: right;
+  }
+}
+
+.u-sp-only {
+  @include mq_up(pc) {
+    display: none;
+  }
+}

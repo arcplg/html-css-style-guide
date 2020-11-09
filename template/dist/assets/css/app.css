@@ -129,30 +129,109 @@ a {
   text-decoration: none;
 }
 
-.l-body {
-  display: flex;
-  padding: 20px 0;
-  background-color: #ffd;
+.l-header {
+  display: inline-block;
+  position: relative;
+  min-width: 100%;
+  background-color: #ddf;
 }
 
-.l-main {
-  flex-grow: 1;
-  padding: 20px 0;
-  background-color: #dfd;
+.l-footer {
+  display: inline-block;
+  position: relative;
+  min-width: 100%;
+  background-color: #ddf;
 }
 
-.l-content {
+.l-mainVisual {
+  display: inline-block;
+  position: relative;
+  min-width: 100%;
+}
+
+.l-topContent {
   min-width: 1000px;
   max-width: 1200px;
   margin-right: auto;
   margin-left: auto;
-  padding: 20px;
-  background-color: #eee;
+  padding-right: 20px;
+  padding-left: 20px;
 }
 
 @media screen and (max-width: 768px) {
-  .l-content {
+  .l-topContent {
     min-width: auto;
+    padding-right: 3.5%;
+    padding-left: 3.5%;
+  }
+}
+
+.l-topSection {
+  display: inline-block;
+  position: relative;
+  min-width: 100%;
+  background-color: #e0f2ff;
+}
+
+.l-pageMain {
+  flex-grow: 1;
+}
+
+.l-pageSidebar {
+  flex-shrink: 0;
+  width: 300px;
+  margin-right: 20px;
+  background-color: #ffd;
+}
+
+@media screen and (max-width: 768px) {
+  .l-pageSidebar {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+.l-pageBody {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: stretch;
+}
+
+@media screen and (max-width: 768px) {
+  .l-pageBody {
+    display: block;
+  }
+}
+
+.l-pageBody .is-sidebar-right {
+  flex-direction: row;
+}
+
+.l-pageBody .is-sidebar-right .l-pageSidebar {
+  margin-right: 0;
+  margin-left: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .l-pageBody .is-sidebar-right .l-pageSidebar {
+    margin-left: 0;
+  }
+}
+
+.l-pageContent {
+  min-width: 1000px;
+  max-width: 1200px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .l-pageContent {
+    min-width: auto;
+    padding-right: 3.5%;
+    padding-left: 3.5%;
   }
 }
 
@@ -178,6 +257,10 @@ a {
   opacity: 0.62;
 }
 
+.c-pageHeading {
+  margin-bottom: 30px;
+}
+
 .c-pageHeading_title {
   font-size: 30px;
   font-weight: bold;
@@ -189,12 +272,8 @@ a {
   }
 }
 
-.c-testInfo {
-  font-size: 22px;
-}
-
-.c-testInfo_label {
-  background-color: #fcc;
+.c-pageHeading_desc {
+  font-size: 24px;
   font-weight: bold;
 }
 
@@ -215,19 +294,10 @@ a {
   position: relative;
   min-width: 100%;
   padding: 20px 0;
-  background-color: #ddf;
 }
 
 .p-footer {
-  display: inline-block;
-  position: relative;
-  min-width: 100%;
   padding: 20px 0;
-  background-color: #ddf;
-}
-
-.p-gnav {
-  background-color: #eee;
 }
 
 .p-gnav_list {
@@ -260,6 +330,112 @@ a {
   .p-section_title {
     font-size: 20px;
   }
+}
+
+.p-topSection {
+  padding: 0 0 30px;
+  background-color: #fff;
+}
+
+.p-mainVisual {
+  position: relative;
+  width: 100%;
+  min-width: 1000px;
+  min-height: 400px;
+  max-height: 675px;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 768px) {
+  .p-mainVisual {
+    min-width: auto;
+    min-height: auto;
+    max-height: 600px;
+  }
+}
+
+.p-mainVisual::before {
+  display: block;
+  padding-top: 56.25%;
+  content: "";
+}
+
+@media screen and (max-width: 768px) {
+  .p-mainVisual::before {
+    padding-top: 56.25%;
+  }
+}
+
+.p-mainVisual_bg {
+  display: flex;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  align-items: center;
+  width: 100%;
+}
+
+.p-mainVisual_bg > img {
+  width: 100%;
+}
+
+.p-mainVisual_content {
+  display: flex;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  min-width: 1000px;
+  max-width: 1200px;
+  padding-right: 20px;
+  padding-left: 20px;
+  transform: translateX(-50%);
+}
+
+@media screen and (max-width: 768px) {
+  .p-mainVisual_content {
+    min-width: auto;
+    padding-right: 3.5%;
+    padding-left: 3.5%;
+  }
+}
+
+.p-mainVisual_content_title {
+  z-index: 3;
+  font-size: 60px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  .p-mainVisual_content_title {
+    font-size: 40px;
+  }
+}
+
+.p-mainVisual_content_desc {
+  z-index: 2;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  .p-mainVisual_content_desc {
+    font-size: 20px;
+  }
+}
+
+.p-mainVisual.is-fixContent .p-mainVisual_bg {
+  left: 50%;
+  max-width: 1200px;
+  transform: translateX(-50%);
+}
+
+.p-mainSection {
+  padding-bottom: 30px;
 }
 
 .u-layerLabel {

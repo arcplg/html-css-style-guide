@@ -1,0 +1,109 @@
+
+// --------------------------------
+// 共通
+// --------------------------------
+.l-header {
+  display: inline-block;
+  position: relative;
+  min-width: 100%;
+  background-color: #ddf;
+}
+
+.l-footer {
+  display: inline-block;
+  position: relative;
+  min-width: 100%;
+  background-color: #ddf;
+}
+
+// --------------------------------
+// Topページ
+// --------------------------------
+.l-mainVisual {
+  display: inline-block;
+  position: relative;
+  min-width: 100%;
+}
+
+.l-topContent {
+  min-width: $pc_min_width;
+  max-width: $pc_max_width;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $pc_top_content_side_padding;
+  padding-left: $pc_top_content_side_padding;
+
+  @include mq_down(sp) {
+    min-width: auto;
+    padding-right: $sp_top_content_side_padding;
+    padding-left: $sp_top_content_side_padding;
+  }
+}
+
+.l-topSection {
+  display: inline-block;
+  position: relative;
+  min-width: 100%;
+  background-color: #e0f2ff;
+}
+
+// --------------------------------
+// Page
+// --------------------------------
+
+.l-pageVisual {
+}
+
+.l-pageMain {
+  flex-grow: 1;
+}
+
+.l-pageSidebar {
+  flex-shrink: 0;
+  width: $pc_page_sidebar_width;
+  margin-right: $pc_page_sidebar_margin;
+  background-color: #ffd;
+
+  @include mq_down(sp) {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+.l-pageBody {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: stretch;
+
+  @include mq_down(sp) {
+    display: block;
+  }
+
+  .is-sidebar-right {
+    flex-direction: row;
+
+    .l-pageSidebar {
+      margin-right: 0;
+      margin-left: $pc_page_sidebar_margin;
+
+      @include mq_down(sp) {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+.l-pageContent {
+  min-width: $pc_min_width;
+  max-width: $pc_max_width;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $pc_page_content_side_padding;
+  padding-left: $pc_page_content_side_padding;
+
+  @include mq_down(sp) {
+    min-width: auto;
+    padding-right: $sp_page_content_side_padding;
+    padding-left: $sp_page_content_side_padding;
+  }
+}

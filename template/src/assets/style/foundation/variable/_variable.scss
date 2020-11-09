@@ -1,0 +1,35 @@
+//  val
+
+//  break point for _responsive.scss
+$bp_tab_max_width: 960;
+$bp_sp_max_width: 768;
+
+// layout setting
+$pc_min_width: 1000px;
+$pc_max_width: 1200px;
+
+// $pc_top_visual_padding_top: 400px;
+$pc_top_visual_padding_top: 56.25%; // 16:9
+$sp_top_visual_padding_top: 56.25%; // 16:9
+
+$pc_top_visual_min_height: 400px;
+$pc_top_visual_max_height: 675px;
+$sp_top_visual_min_height: 300px;
+$sp_top_visual_max_height: 600px;
+
+$pc_top_content_side_padding: 20px;
+$sp_top_content_side_padding: 3.5%;
+
+$pc_page_content_side_padding: 20px;
+$sp_page_content_side_padding: 3.5%;
+
+$pc_page_sidebar_width: 300px;
+$pc_page_sidebar_margin: 20px;
+
+//  color
+$color_primary: #101e2a;
+$color_error: #ff1f00;
+
+$color_font_base: #232323;
+
+$color_bg_content: #eee;

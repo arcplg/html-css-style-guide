@@ -1,0 +1,31 @@
+{
+  "name": "html-css-style-guide",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "ARCHIPELAGO Inc.",
+  "license": "MIT",
+  "scripts": {
+    "gulp": "gulp",
+    "gulp:sass": "gulp sass"
+  },
+  "browserslist": [
+    ">2% in JP, ie >= 11, ios_saf >= 12, Firefox ESR"
+  ],
+  "devDependencies": {
+    "autoprefixer": "9.8.6",
+    "browser-sync": "^2.26.12",
+    "css-declaration-sorter": "^5.1.2",
+    "gulp": "^4.0.2",
+    "gulp-notify": "^3.2.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^9.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sass-glob": "^1.1.0",
+    "node-env-file": "^0.1.8",
+    "node-sass": "^4.14.1",
+    "stylelint": "^13.7.2",
+    "stylelint-config-property-sort-order-smacss": "^6.3.0",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-scss": "^3.18.0"
+  }
+}

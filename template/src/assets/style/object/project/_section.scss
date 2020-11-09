@@ -1,0 +1,15 @@
+.p-section {
+  display: inline-block;
+  min-width: 100%;
+  margin: 10px 0;
+  background-color: #beb;
+
+  &_title {
+    font-size: 24px;
+    font-weight: bold;
+
+    @include mq_down(sp) {
+      font-size: 20px;
+    }
+  }
+}

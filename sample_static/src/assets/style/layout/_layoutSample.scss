@@ -16,7 +16,7 @@
   margin-right: auto;
   margin-left: auto;
   padding: 20px;
-  background-color: $color-bg-content;
+  background-color: $color_bg_content;
 
   @include mq_down(sp) {
     min-width: auto;
