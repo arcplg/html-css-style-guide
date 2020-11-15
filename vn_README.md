@@ -7,11 +7,11 @@ https://github.com/arcplg/html-css-style-guide
 * **Style guide overview (This file)**
   * Mở đầu và tóm tắt tổng thể
   * Các mục mà PM, Designer cũng phải confirm
-* **[HTML Guide: README_HTML.md](README_HTML.md)**
+* **[HTML Guide: README_HTML.md](vn_README_HTML.md)**
   * Mô tả về HTML, cấu trúc nhìn từ quan điểm SEO
-* **[STYLE(CSS) Guide: README_STYLE.md](README_STYLE.md)**
+* **[STYLE(CSS) Guide: README_STYLE.md](vn_README_STYLE.md)**
   * Mô tả về CSS, thiết kế cấu trúc (Structural Design)
-* **[Development environment guide: README_OPS.md](README_OPS.md)**
+* **[Development environment guide: README_OPS.md](vn_README_OPS.md)**
   * Editor setting, Development ENV Architecture
   * Trong sample_static có sample và [README.md](sample_static/README.md)
 * **[Coding setting sheet](https://docs.google.com/spreadsheets/d/16MCcsQESgk16r9Nh8RwrPe3L3d1ahOWRtP2I8nQHuqw/edit#gid=1764403400)**
@@ -19,111 +19,110 @@ https://github.com/arcplg/html-css-style-guide
 
 # Mở đầu
 
-本ドキュメントは、HTML/CSSをコーディングする際の、準拠するガイドと、必ず指示をしてもらう箇所を定義します。
-プロジェクトごとにコーディング設定書を作成し、PM/デザイナー/コーダー間で共有するようお願いします。
+Document này định nghĩa những guide tiêu chuẩn và những điểm chắc chắn sẽ yêu cầu khi thực hiện code HTML/CSS.
+Xin hay tạo coding setting document cho mỗi project và chia sẻ giữa PM/Designer/Dev.
 
-明瞭性、再利用性、保守性を意識したCSS設計を行ってください。
+Thực hiện thiết kế CSS một cách rõ ràng, có thể tái sử dụng và bảo trì.
 
-* 明瞭性
-読みやすく、理解しやすい記述、構成を心がけます。
-* 再利用性
-既存のパーツから新しいコンポーネントを簡単に作成できるように心がけます。
-* 保守性
-新しいコンポーネントや機能の追加・更新が簡単に行える設計になっているように心がけます。
+* Tính rõ ràng
+Chú ý đến mô tả, cấu trúc dễ đọc dễ hiểu.
+* Tính tái sử dụng
+Chú ý đến việc có thể tạo component mới từ các phần hiện tại một cách đơn giản.
+* Tính bảo trì
+Chú ý đến việc thiết kế có thể thêm, update component mới một cách đơn giản
 
-随時、みなさんで修正していきましよう！
-
-**本ガイドはあくまでガイドラインであり、全てを準拠する必要はありません。
-プロジェクトの規模やコストを見ながら最適な実装を選択してください。**
+**Hướng dẫn này chỉ là hướng dẫn và không cần thiết phải tuân thủ hết tất cả.
+Lựa chọn cách thực hiện tối ưu dựa trên quy mô và chi phí của dự án.**
 
 
-# おさえておきたいトピック
-詳細はそれぞれの別途ファイルを参照
+# Các topic cần ghi nhớ
+Chi tiết tham khảo các file sau:
 
-## [HTML](README_HTML.md) トピック
-  * `セマンティック`に記述する
-    * 見た目や振る舞いからではなく、目的や役割に基づいてclass名をつける
-    * できる限りHTML5の構造化タグ( header, nav, footer, section, article, etc...)で記述する
-  * `<h1>`要素はページ内で1つにし、原則トップページではロゴアイコン周りやサイト名に使い、他のページはヘッダータイトルに設定する
-  * ヘッダーの順番 h1 h2 h3 ... を守る
-  * metaセクションを設定する
-    * title, description, viewport を適切に設定する
-    * OGP（Open Graph Protocol）は必ず指定する。og:typeはTopと配下で切り替える
-  * ベクトルにできる画像はなるべくSVGで保存する
-  * 画像,CSS,JSなどの参照ファイルのセパレータは原則 `_`(under score)を使う（`-`はNG）
-  * 画像にalt属性を入れる（背景画像のような意味のない画像は対象外）
-  * アイコンはなるべくWebIconFontを利用する（デザイナと相談、わざわざデザインしなくてもいい場合）
-  * CSS/JS キャッシュの対策
-    * お客さま（ユーザー）に毎回ブラウザをスーパーリロードする必要がないように、できる限りインクルードするファイル名の後ろに一意のパラメータを付与する ex.`file.css?v=202010090954`
-    * なにかしらHTMLテンプレートエンジンを組み込んでいる、もしくはphpの場合、自動化してください
+## [HTML](vn_README_HTML.md) Topic
+  * Mô tả chỗ `Sematic`
+    * 見た目や振る舞いからではなく、目的や役割に基づいてclass名をつける Đặt tên lớp dựa trên mục đích và vai trò, không dựa trên cách nhìn hay hành động.
+    * Nếu có thể thì mô tả băng tag cấu trúc HTML5 (header, nav, footer, section, article, etc...)
+  * `<h1>` là 1 element trong trang và về nguyên tắc ở top page sử dụng cho tên site hay xung quanh logo icon, page khác set cho header title.
+  * Thứ tự header phải tuân thủ quy tắc h1 h2 h3 ...
+  * Set meta session
+    * Set title, description, viewport cho phù hợp
+    * Phải chỉ định OGP（Open Graph Protocol）. og:type chuyển đổi Top và subordinates (cấp dưới)
+  * Image có thể chuyển sang dạng vector thì cố gắng lưu dưới dạng SVG
+  * Về nguyên tắc, sử dụng `_` (under score) làm dấu phân cách cho các tệp tham chiếu như image, CSS, JS (` -` NG)
+  * 画像にalt属性を入れる（背景画像のような意味のない画像は対象外）Đặt thuộc tính alt vào image (không bao gồm các hình ảnh vô nghĩa như background image)
+  * Icon cố gắng sử dụng WebIconFont (Trao đổi với designer, có lúc không cần phải design)
+  * Các biện pháp cache CSS/JS
+    * Nếu có thể thì thêm các parameter duy nhất sau tên file sẽ include để khách hàng (user) không cần phải tải lại trình duyệt.
+    ex.`file.css?v=202010090954`
+    * Nếu có thể tích hợp HTML template engine hoặc php thì hãy tự động hoá
 
-## [CSS / STYLE](README_STYLE.md) 記述トピック
-  * idは極力使わない（CSSセレクターで#idは禁止、jsで使う場合はOK）
-  * CSSのセレクターは原則1階層にする。そのため、BEM（の改良）で記述する
+## [CSS / STYLE](README_STYLE.md) TOPIC
+  * Không dùng id nhiều nhất có thể (Chỗ CSS selector không được dùng #id, nếu dùng bằng js thì OK)
+  * CSS selector nguyên tắc là set 1 tầng. Do đó, sẽ mô tả trong (cải tiến) BEM 
     ```CSS
       .menu .button {} // NG
       .menu_button {} // OK
     ```
-  * CSSの!importantは原則禁止
-  * 要素セレクタ(HTML Tag)はCSSで直接使わず、必ずクラスを付与する
+  * CSSの!important về nguyên tắc là không được
+  * HTML Tag không dùng trực tiếp trong CSS, phải set class
 
-## [開発/環境トピック](README_OPS.md)
-* エディターは`Visual Studio Code`(VSC)を使用する
-  * オートフォーマット設定などVSC設定ファイルを共通でコミットしたい
-  * 利用人口も多く、個人的にコーディングで一番良いエディターだと思います。
-  * クラウド版もベータリリースされており、今後開発環境とのセットになると考えられる
-* 作業開始時はできる限りテンプレート/開発環境から開始する
-* フォーマット調整はできる限り手動ではなくVSCのオートフォーマットを利用する
-  * インデントはスペース2つ
-  * ブラウザ固有のベンダープレフィックスは手で書かず、自動で記述してくれる開発環境を利用する、など
-* lintを必ず通し、エラーがない状態でコミットする（VSCで自動化、開発環境ガイド参照）
-* スマホなどのデバイスの実機確認を必ず行う
-  * 時間がない場合、クラウドの[Browser Stack](https://www.browserstack.com/)（契約済）を利用する。localIPでも利用する場合chromeに下記拡張機能を入れてください。
+## [Develop/Env TOPIC](README_OPS.md)
+* Editor dùng `Visual Studio Code`(VSC)
+  * Mong muốn commit dùng chung file setting VSC chẳng hạn như auto format setting
+  * Nhiều người sử dụng, quan điểm cá nhân là editor tốt nhất
+  * Bản cloud cũng đã được release, sau này có thể sẽ set với môi trường phát triển
+* Khi bắt đầu thực hiện, nếu có thể thì bắt đầu từ template/môi trường phát triển
+* Điều chỉnh format nếu có thể thì sử dụng auto format thay vì làm thủ công
+  * Indent 2 dấu cách
+  * Bender Prefix cố định browser không viết thủ công mà sử dụng môi trường phát triển để mô tả tự động,...
+* Phải thông qua lint commit ở tình trạng không có lỗi (Tự động hoá bằng VSC, xem hướng dẫn môi trường phát triển)
+* Phải confirm thực tế trên device như smartphone...
+  * Nếu không có thời gian, sử dụng [Browser Stack](https://www.browserstack.com/) cloud（Đã đăng ký）. Nếu dùng localIP thì hãy đưa tiện ích mở rộng này vào Chrome.
   https://chrome.google.com/webstore/detail/browserstack-local/mfiddfehmfdojjfdpfngagldgaaafcfo?hl=ja
 
 
-# プロジェクトごとの仕様確認
-下記これらをまとめたのがコーディング設定シートとなります。
+# Confirm spec mỗi project
+Tổng hợp những việc dưới đây trong sheet setting coding.
 
-## ターゲット環境・検証ブラウザ
-コーディング前にWindows環境、Machintosh環境、スマートフォンなど対応が必要なブラウザ、端末を明確にします。
-端末ごとのデフォルトフォントに気をつけてください（後述）
+## Target ENV/Test browser
+Trước khi coding cần xác nhận rõ browser, thiết bị cần phải thực hiện như: Windows, Machintosh, Smartphone,...
+Lưu ý default font cho mỗi thiết bị 端末ごとのデフォルトフォントに気をつけてください（Xem bên dưới）
 
-対応ブラウザが増えるほど、コストがかかります。
-特に`Microsoft Internet Explorer 11` は特別なコストがかかるため、できる限り対応ブラウザは少なく、もしくは、対応しても最低限の検証ですむように、PM＆顧客と相談してください。
+Cứ thêm browser phải thực hiện sẽ phát sinh thêm chi phí.
+Nhất là, `Microsoft Internet Explorer 11` sẽ tốn khoản phí đặc biệt, nên nếu có thể thì hạn chế thực hiện cho browser này, hoặc là nếu có triển khai thì cần trao đổi với PM & KH để xác minh tối thiểu.
 
-* 標準ターゲット（2020/10/08現在）
-  * Windows環境
+* Standard target（2020/10/08 now）
+  * Windows ENV
     * Microsoft Internet Explorer 11
-    * Microsoft Edge 最新バージョン
-    * Google Chrome 最新バージョン
-    * Mozilla Firefox 最新バージョン
-  * Macintosh環境
-    * Safari 最新バージョン
-    * Google Chrome 最新バージョン
-    * Mozilla Firefox 最新バージョン
-  * iOS環境
-    * iOS 12以降の Safari 最新バージョン
-    * iOS 12以降の Google Chrome最新版
-  * Android環境
-    * Andoroid ver.6.0以上の Google Chrome最新版
-* 標準メイン検証ターゲット
-  * Windows環境
+    * Microsoft Edge latest version
+    * Google Chrome latest version
+    * Mozilla Firefox latest version
+  * Macintosh ENV
+    * Safari latest version
+    * Google Chrome latest version
+    * Mozilla Firefox latest version
+  * iOS ENV
+    * Safari latest version after iOS 12
+    * Google Chrome latest version after iOS 12
+  * Android ENV
+    * Google Chrome latest version from Android ver.6.0
+* Standard main test target
+  * Windows ENV
     * Microsoft Internet Explorer 11
-    * Google Chrome 最新バージョン
-  * Macintosh環境
-    * Google Chrome 最新バージョン
-  * iOS環境
-    * iOS 12以降の Safari 最新バージョン
-  * Android環境
-    * Andoroid ver.6.0以上の Google Chrome最新版
+    * Google Chrome latest version
+  * Macintosh ENV
+    * Google Chrome latest version
+  * iOS ENV
+    * iOS 12以降の Safari latest version
+  * Android ENV
+    * Google Chrome latest version from Android ver.6.0
 
 
-## レスポンシブル / ブレークポイント仕様
-ブレークポイントとブレークポイント間の幅指定を定義します。
-注意：レスポンシブルと幅が可変かどうかは別の話であり、別々に決めなくてはいけません。
+## Responsive/Breakpoint spec
+Định nghĩa chỉ định chiều rộng giữa các breakpoint
+Chú ý: responsive và chiều rộng có thể thay đổi không sẽ nói và quyết định riêng
 
-### 画面サイズ参考
+### Screen size reference
 * XPERIA : `360` x 640
 * Pixel3XL : `480` x 987
 * GLAXYS10 : `480` x 1013
@@ -137,41 +136,40 @@ https://github.com/arcplg/html-css-style-guide
 * iPad Pro 12.9" : 1024 x 1366
 * iPad/mini/Air SplitView : 320 x 1024
 
-### ブレークポイント標準設定(2020/10/08現在)
-顧客から指定がない場合の推奨ですが、場合に応じて、下記の`この部分`の変更をしてください。
+### Breakpoint standard setting (2020/10/08 now)
+Khuyến cáo trường hợp không có yêu cầu từ phía KH, tuỳ trường hợp hãy thay đôi `Phần này` như bên dưới
 [sample site](https://arcplg.github.io/html-css-style-guide/layout1.html)
 
-* ブレークポイント1つ2モードの場合(ほとんどの場合これ)
-  * ブレークポイント
-    * モバイル `768px` まで : PC `769px` から
-  * 幅仕様
-    * モバイル `可変幅100%`
-    * PC以下の組合わせ
-      a) `1100px` 完全固定幅（それ以下は横スクロールバー表示）
-		  a+) `xxxpx` min-width 以下は固定、それ以上は可変幅
-		  a+) `xxxpx` max-width まで可変幅、それ以上は固定
-* ブレークポイント2つ3モードの場合
-  * ブレークポイント
-    * モバイル `480px` まで : タブレット `481px` から `896px` まで : PC `897px` から
-  * 幅仕様
-    * モバイル `可変幅100%` : タブレット `可変幅100%` : PC `固定幅1100px`(上記参照)
+* Trường hợp 1 breakpoint 2 chế độ (Hầu hết các trường hợp sẽ thế này)
+  * Breakpoint
+    * Mobile đến `768px` : PC từ `769px`
+  * Thông số chiều rộng
+    * Mobile `Có thể biến đổi chiều rộng 100%`
+    * Kết hợp PC dưới đây
+      a) `1100px` chiều rộng cố định toàn màn hình (dưới cái này cho show scroolbar ngang như dưới)
+		  a+) `xxxpx` min-width cố định dưới, chiều ngang có thể thay đổi, cố định có thể từ đó trở lên
+		  a+) `xxxpx` max-width có thể thay đổi, cố định giống trên, cố định từ đó trở lên
+* Trường hợp 2 breakpoint 3 mode
+  * Breakpoint
+    * Mobile đến `480px` : Tablet từ `481px` đến `896px` : PC từ `897px`
+  * Spec chiều rộng
+    * Mobile `Width có thể thay đổi 100%` : Tablet `Width có thể thay đổi 100%` : PC `Width cố định 1100px`(Tham khảo ở trên)
 
-固定幅の1100pxはプロジェクトごとの指定。変動の場合もあり
-スマホの最小サイズは原則360pxとします。
+Chiều ngang cố định 1100px, chỉ định tuỳ theo mỗi project, có trường hợp biến động thì size nhỏ nhất của smartphone (360px)
 
 
-## フォント
-* 全体で利用するフォントリスト(+文字の太さバリエーション)を頂いてください
-* 外部Webフォントを指定する場合、なるべく `google font` を利用するようにお願いしてください（部分ロードができるため）
-  利用例
+## Font
+* Hãy nhận font list sử dụng cho tất cả page (+Variation bold của text
+* Trường hợp chỉ định web font ở ngoài, hãy cố gắng sử dụng `google font`  (（Vì có thể load 1 phần）
+  Ví dụ:
   ```
   https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700&display=swap
   ```
-* 指示ならばしょうがないのですが、外部の日本語Webフォントはサイズが大きいのでなるべく使わない、使っても一つぐらいがベターです
+* Nếu được yêu cầu thì không thể tránh khỏi, tuy nhiên Web font tiếng Nhật ở ngoài size to nên cố gắng không sử dụng, nếu vẫn dùng thì một font thì tốt hơn.
 
 
-### フォント標準設定(2020/10/08現在)
-特に指定がない場合、下記の設定が無難です。
+### Font standard settings (2020/10/08 now)
+Nếu không có chỉ định gì đặc biệt thì setting như dưới đây cũng ok.
 
 ```CSS
 body {
@@ -184,7 +182,7 @@ body {
     sans-serif;
 }
 ```
-游ゴシックを使いたい場合は、WindowsのChromeでフォントが細くなってしまう問題があり、対策をしなくてはなりません。一例として以下のような、Windows書体名に Medium を付ける方法がありますが、プロジェクトによって検討をしてください。
+Nếu muốn sử dụng Yu Gothic, sẽ phát sinh vấn đề font chữ sẽ bị mỏng trên Chrome của Windows nên phải có giải pháp thực hiện. Có một cách làm là thêm Medium vào tên font Windows giống như ví dụ dưới đây nhưng tuỳ dự án hãy tìm thêm có giải pháp nào khác không.
 ```CSS
 
 body {
@@ -200,32 +198,33 @@ body {
 }
 ```
 
-## ファビコン
-素材を決める
-* 16x16,32x32がセットになった`.ico`ファイル（必須）
-* iPhoneやiPadのsafariや、Androidのホーム画面で使用されるアイコン(180x180,必須ではない)
+## Favicon
+Quyết định hình
+* 16x16,file `.ico` đã set 32x32 (Required)
+* icon được sử dụng trên home screen của Android hay safari của iPhone/iPad (180x180, Optional)
 
 ## OGP
-`og:image`の素材を決める
-* 原則 600 x 315 以上 (横幅が 600以上)
-* 高解像度端末に対応させたい場合は倍の 1200 x 630 以上
+Quyết định hình `og:image`
+* Nguyên tắc trên 600 x 315 (Chiều rộng trên 600)
+* Trường hợp yêu cầu xử lý cho các thiết bị có độ phân giải cao thì gấp đôi trên 1200 x 630
 
-## Webアイコンフォント
-* Webサイトで使うアイコンは、可能ならばなるべく、画像ではなくWebアイコンフォントを利用してください。
-* Webアイコンフォントを使う場合は、なるべく一つのセットから選ぶようにしてください
-* さらに可能ならば、使うアイコンのみを読み込むようにしてください
+## Web icon font
+* Icon sử dụng trên Website nếu có thể thì cố gắng sử dụng Web icon font và không dùng hình ảnh
+* Trường hợp sử dụng Web icon font hãy cố gắng chọn từ 1 set
+* Hơn nữa nếu có thể, hãy xử lý để chỉ load icon sẽ sử dụng
 
-## AMPに対応するか決める
+## Quyết định có cần xử lý AMP không
 
 
-# デザインカンプ (Design Comprehensive Layout)
-上記のプロジェクト仕様を共有した上でデザイン制作をお願いしてください。
-またできるかぎり、AdobeXD での制作をお願いしてください。
+# Design comp (Design Comprehensive Layout)
+Sau khi share project spec trên, hãy thực hiện design.
+Ngoài ra nếu có thể, hãy thực hiện bằng AdobeXD.
 
-## その他、PM、デザイナーさんへのお願い事項
+## Các yêu cầu dành cho PM, Designer
 
-### 画像コンバートに関して
-* 画像化する部分は明確に指定してください。できれば、サイズx2倍対応やファイルサイズについて検討・指示してください。
+### Liên quan đến việc convert image
+* Phần hình ảnh hãy chỉ định một cách rõ ràng. Nếu có thể, hãy research/yêu cầu file size  画像化する部分は明確に指定してください。できれば、サイズx2倍対応やファイルサイズについて検討・指示してください。
+Vui lòng chỉ định phần cần chụp ảnh rõ ràng. Nếu có thể bạn vui lòng xem xét và hướng dẫn kích thước x 2 lần hỗ trợ và kích thước file.
 * 幾何学的（写真ではない）画像でベクトル化できるものはベクトル画像にするか、指示してください
 * 画像化を想定している文字も、フォントのままではなく、ベクトル化できるものはベクトル化してください。（デザインファイルを開いたり、なにか操作をしたときに、フォントが変更される場合があるので）
 * WebPに対応するかどうか
