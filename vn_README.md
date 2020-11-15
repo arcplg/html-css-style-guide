@@ -40,7 +40,7 @@ Chi tiết tham khảo các file sau:
 
 ## [HTML](vn_README_HTML.md) Topic
   * Mô tả chỗ `Sematic`
-    * 見た目や振る舞いからではなく、目的や役割に基づいてclass名をつける Đặt tên lớp dựa trên mục đích và vai trò, không dựa trên cách nhìn hay hành động.
+    * Đặt tên lớp dựa trên mục đích và vai trò, không dựa trên cách nhìn hay hành động.
     * Nếu có thể thì mô tả băng tag cấu trúc HTML5 (header, nav, footer, section, article, etc...)
   * `<h1>` là 1 element trong trang và về nguyên tắc ở top page sử dụng cho tên site hay xung quanh logo icon, page khác set cho header title.
   * Thứ tự header phải tuân thủ quy tắc h1 h2 h3 ...
@@ -224,8 +224,7 @@ Ngoài ra nếu có thể, hãy thực hiện bằng AdobeXD.
 
 ### Liên quan đến việc convert image
 * Phần hình ảnh hãy chỉ định một cách rõ ràng. Nếu có thể, hãy xem xét yêu cầu file size hỗ trợ size x2
-* 幾何学的（写真ではない）画像でベクトル化できるものはベクトル画像にするか、指示してください
-Nếu hình ảnh có thể vector hoá bằng hình học (không phải ảnh chụp) hãy yêu cầu có thể convert thành hình vector không
+* Nếu hình ảnh có thể vector hoá bằng hình học (không phải ảnh chụp) hãy yêu cầu có thể convert thành hình vector không
 * Text giả định thành hình ảnh hoá thì không để nguyên font mà vector hoá nếu có thể （Vì font có thể thay đổi khi mở file design hoặc thực hiện bất kỳ thao tác nào）
 * Có xử lý cho WebP không
 
