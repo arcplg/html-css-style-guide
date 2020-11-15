@@ -1,12 +1,10 @@
 // min-width
 $breakpoint_up: (
   "pc": "screen and (min-width: #{$bp_sp_max_width+1}px)"
-  "tab": "screen and (min-width: #{$bp_tab_max_width+1}px)"
 ) !default;
 
 // max-width
 $breakpoint_down: (
-  "tab": "screen and (max-width: #{$bp_tab_max_width}px)"
   "sp": "screen and (max-width: #{$bp_sp_max_width}px)"
 ) !default;
 

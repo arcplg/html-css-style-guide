@@ -19,7 +19,7 @@
 // Layout
 // ==========================================================================
 
-@import "layout/_layoutSample";
+@import "layout/_layout";
 // @import "layout/_header";
 // @import "layout/_main";
 // @import "layout/_sidebar";
@@ -34,9 +34,7 @@
 
 @import "object/component/_button";
 @import "object/component/_pageHeading";
-@import "object/component/_testInfo";
 @import "object/component/_paragraph";
-// @import "object/component/_media";
 
 // -----------------------------------------------------------------
 // Project
@@ -46,17 +44,12 @@
 @import "object/project/_footer";
 @import "object/project/_gnav";
 @import "object/project/_section";
-// @import "object/project/_gallery";
-// @import "object/project/_profile";
+@import "object/project/_topSection";
+@import "object/project/_mainVisual";
+@import "object/project/_mainSection";
 
 // -----------------------------------------------------------------
 // Utility
 // -----------------------------------------------------------------
 
 @import "object/utility/_utility";
-// @import "object/utility/_align";
-// @import "object/utility/_clearfix";
-// @import "object/utility/_margin";
-// @import "object/utility/_position";
-// @import "object/utility/_size";
-// @import "object/utility/_text";
