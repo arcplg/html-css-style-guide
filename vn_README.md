@@ -49,7 +49,7 @@ Chi tiết tham khảo các file sau:
     * Phải chỉ định OGP（Open Graph Protocol）. og:type chuyển đổi Top và subordinates (cấp dưới)
   * Image có thể chuyển sang dạng vector thì cố gắng lưu dưới dạng SVG
   * Về nguyên tắc, sử dụng `_` (under score) làm dấu phân cách cho các tệp tham chiếu như image, CSS, JS (` -` NG)
-  * 画像にalt属性を入れる（背景画像のような意味のない画像は対象外）Đặt thuộc tính alt vào image (không bao gồm các hình ảnh vô nghĩa như background image)
+  * Đặt thuộc tính alt vào image (không bao gồm các hình ảnh vô nghĩa như background image)
   * Icon cố gắng sử dụng WebIconFont (Trao đổi với designer, có lúc không cần phải design)
   * Các biện pháp cache CSS/JS
     * Nếu có thể thì thêm các parameter duy nhất sau tên file sẽ include để khách hàng (user) không cần phải tải lại trình duyệt.
@@ -86,7 +86,7 @@ Tổng hợp những việc dưới đây trong sheet setting coding.
 
 ## Target ENV/Test browser
 Trước khi coding cần xác nhận rõ browser, thiết bị cần phải thực hiện như: Windows, Machintosh, Smartphone,...
-Lưu ý default font cho mỗi thiết bị 端末ごとのデフォルトフォントに気をつけてください（Xem bên dưới）
+Lưu ý default font cho mỗi thiết bị（Xem bên dưới）
 
 Cứ thêm browser phải thực hiện sẽ phát sinh thêm chi phí.
 Nhất là, `Microsoft Internet Explorer 11` sẽ tốn khoản phí đặc biệt, nên nếu có thể thì hạn chế thực hiện cho browser này, hoặc là nếu có triển khai thì cần trao đổi với PM & KH để xác minh tối thiểu.
