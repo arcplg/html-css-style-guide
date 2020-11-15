@@ -223,14 +223,14 @@ Ngoài ra nếu có thể, hãy thực hiện bằng AdobeXD.
 ## Các yêu cầu dành cho PM, Designer
 
 ### Liên quan đến việc convert image
-* Phần hình ảnh hãy chỉ định một cách rõ ràng. Nếu có thể, hãy research/yêu cầu file size  画像化する部分は明確に指定してください。できれば、サイズx2倍対応やファイルサイズについて検討・指示してください。
-Vui lòng chỉ định phần cần chụp ảnh rõ ràng. Nếu có thể bạn vui lòng xem xét và hướng dẫn kích thước x 2 lần hỗ trợ và kích thước file.
+* Phần hình ảnh hãy chỉ định một cách rõ ràng. Nếu có thể, hãy xem xét yêu cầu file size hỗ trợ size x2
 * 幾何学的（写真ではない）画像でベクトル化できるものはベクトル画像にするか、指示してください
-* 画像化を想定している文字も、フォントのままではなく、ベクトル化できるものはベクトル化してください。（デザインファイルを開いたり、なにか操作をしたときに、フォントが変更される場合があるので）
-* WebPに対応するかどうか
+Nếu hình ảnh có thể vector hoá bằng hình học (không phải ảnh chụp) hãy yêu cầu có thể convert thành hình vector không
+* Text giả định thành hình ảnh hoá thì không để nguyên font mà vector hoá nếu có thể （Vì font có thể thay đổi khi mở file design hoặc thực hiện bất kỳ thao tác nào）
+* Có xử lý cho WebP không
 
-### レスポンシブル・その他
-* レスポンシブルのスマホ版があるかどうか。ない場合、どのようにするかの概要指示をお願いします
-* レスポンシブルのテーブルデザインは、例えば、横スクロールか、縦並びかで大きく作りが変わるので、事前に確定してください。
+### Responsive/Other
+* Có bản smartphone design responsive không. Nếu không hãy yêu cầu overview làm như thế nào.
+* Table design responsive sẽ thay thôi cách làm rất nhiều ví dụ scroll ngang, vertical alignment nên hãy xác định ngay từ đầu.
 
 
