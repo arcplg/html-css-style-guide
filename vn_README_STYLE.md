@@ -1,32 +1,28 @@
-# **CSS / STYLE コーディング ガイドライン**
+# **CSS / STYLE  coding guideline**
 
-# 概要
-原則SASS(SCSS)を`gulp`、もしくはnuxt/Vue.jsの場合は`webpack`でビルドすることを想定しています。
+# Khái quát
+Trường hợp là SASS(SCSS) của gulp hoặc nuxt/Vue.js thì sẽ build bằng webpack
+* **CSS style rule**
+  * Đây là rule
+* **CSS format rule**
+  * Đây là rule được viết
+* **Thiết kế cấu trúc**
+  * Mặc dù tham khảo FLOCSS, nhưng đang tiến hành định nghĩa độc lập riêng
+  * **Qui tắc đặt tên Class **
+    - Tham khảo cách viết BEM, và thực hiện một cách đơn giản hóa. Cố gắng giảm độ chi tiết,và có  thể viết một cách flat
+  * **Cascading**
+     - Nếu được thì cố gắng ko viết đè
+  * **cấu trúc file – directory **
+    - Về cơ bản thì sẽ phân chia directory theo từng layer, và 1 module sẽ là 1 file 
 
-* **CSSスタイルルール**
-  * 考え方のルールです
-* **CSSフォーマットルール**
-  * 記載するルールです
-* **構造設計**
-  * FLOCSSを参考にしますが、独自に定義しています
-  * **Class命名規則**
-    - BEM記法を参考にし簡略化しています。なるべく詳細度を低く、フラットに記載できるようにします。
-  * **カスケーディング**
-     - できる限り上書きがないようにします
-  * **ディレクトリ・ファイル構成**
-    - 基本的にレイヤーごとにディレクトリを分け1モジュールを1ファイルにします。
+# CSS style rule
 
+## Cấm ko sử dụng ID selector
+## Element selector về nguyên tắc thì ko sử dụng
 
-# CSSスタイルルール
-
-## IDセレクタは使用禁止
-
-## 要素セレクタは原則使用しない
-
-要素セレクタを使用しないことを推奨するが、コードが複雑にならないと判断した場合、子セレクタ( `>` )の範囲で対応してください。またセマンティック性がない汎用的要素の`div`、`span` 要素は禁止とします。
-また、不要な先祖セレクタは除去してください。
-
-**要素セレクタの使用例**
+Tuy là khuyến khích việc ko sử dụng element selector nhưng trong trường hợp thấy code ko phức tạp cho lắm, thì hãy đối ứng trong phạm vi của selector con ( `>` ). Ngoài ra, cũng cấm các `div`、`span` element của các element chung là những cái ko có tính semantic
+Thêm nữa, hãy remove những selector cha ko cần thiết.
+**Ví dụ về element selector **
 
 ```html
 <ul class="list-item">
@@ -35,7 +31,7 @@
 </div>
 
 <div class="card-item">
-  <span>氏名</span>
+  <span>氏名</span>
   <div>説明</div>
 </div>
 ```
@@ -50,27 +46,23 @@ div.card-item {}
 .card-item > span {}
 ```
 
-## ボックスモデル
+##Box model
 
-ボックスモデルは原則`box-sizing: border-box`（widthはpaddingを含む設定）にする。
-reset.cssに記述します。
+Box model sẽ làm theo nguyên tắc `box-sizing: border-box` (width setting bao gồm padding)
+Sẽ viết trong reset.css
+## Đối ứng responsive
 
+###Trên nguyên tắc định nghĩa bằng mixin, variable
 
-## レスポンシブル対応
+Để có thể đối ứng responsive một cách dễ dàng trng trường hợp phải thay đổi toàn bộ thì hãy định nghĩa hàm bằng mixin, width thì định nghĩa bằng variable
 
-### 原則mixin, variableで定義する
+### Đối ứng responsive img srcset
 
-後々全体を変更する必要がある場合対応しやすいように、レスポンシブルはmixinで関数定義、widthはvariableでで定義してください。
+[Tối ưu hóa việc hiển thị hình ảnh bằng responsive image](https://ics.media/entry/13324/)
 
-
-### レスポンシブル対応 img srcset
-
-[レスポンシブルイメージで画像表示を最適化](https://ics.media/entry/13324/)
-
-ブレイクポイントによるimg画像の切り替えは、CSSの切り替えのみの場合、すべての画像データを読み込んでしまいます。
-このデータ量が気になる場合。picture要素で行なってください。
-ただしプロジェクトによって検討してください。
-
+Việc thay thế hình ảnh dựa trên Break point sẽ load toàn bộ data hình ảnh trong trường hợp chỉ thay thế CSS
+Trường hợp thấy data này nặng quá, thì hãy thực hiện bằng picture element
+Tuy nhiên có thể tùy chỉnh tùy theo từng project 
 ```html
 <picture>
   <source media="(max-width:400px)" srcset="sp.jpg 400w" sizes="100vw">
@@ -78,96 +70,88 @@ reset.cssに記述します。
   <img src="pc.jpg">
 </picture>
 ```
-ただし、IE11は対応していないため`picturefill.js`でポリフィルします。
+Tuy nhiên, vì ko đối ứng trên IE11 nên sẽ Polyfill bằng `picturefill.js`  
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/picturefill/3.0.3/picturefill.min.js"></script>
 ```
 
-## リンクするエリアについて
+## Về các vùng cần link
 
-JSなどでクリックできるエリアはdivではなく可能な限りa要素を使う。
-a要素でないとSEO的にリンクと判断されないため。またユーザーが新しいWindowで表示ができない。
+Vùng mà có thể link được bằng JS thì ko phải là dùng div mà sẽ sử dụng a element nếu có thể.
+Vì nếu như ko phải là a element thì không thể phán đoán là link SEO. Ngoài ra, user cũng ko thể hiển thị được trên window mới
 
-## その他
+## Ngoài ra
 
-- br要素などで要素間の隙間を調整してはいけない
-- WAI-ARIAについて、今後の課題
-
-
-## サイズもろもろについて
+- bắt buộc phát điều chỉnh khoảng trống giữa các element bằng các hình thức như là br element
+- Về WAI-ARIA, sẽ có đề tài để nói sau
 
 
-### フォントサイズ
+## Về kích thước khác nhau
 
-基本的には、`rem`を推奨します。
+
+### Font size
+
+Về cơ bản thì điều chỉnh sao cho 1rem sẽ là 10px bằng việc khuyến khích sử dụng `rem`
 
 ```css
 html { font-size: 62.5%; }
 ```
 
-にすることで1remが10pxになるように調整できます。
 
+### Kích thước giữa các kĩ tự
 
-### 文字間サイズ
-
-基本的には、`em`を推奨します。
+Về cơ bản thì khuyến khích sử dụng `em`
 
 ``` CSS
 .text { letter-spacing: 0.01em; }
 ```
 
-Photoshopで`トラッキング数値`の指示がある場合 ÷ 1000を`letter-spacing`に指定します。
-
+Trường hợp có chỉ thị “Tracking number” bằng photoshop thì sẽ chỉ định ÷ 1000 là `letter-spacing`
 
 ### line-height
 
-基本的には、単位をつけないことを推奨します。
-ただし、line-heightによって固定高さで上下中央を実現する場合は`px`などの固定値を指定できます。
+Về cơ bản, thì khuyên khích việc ko gắn kèm theo đơn vị.
+Tuy nhiên, trường hợp thực hiện cố định chiều cao ở trên dưới trung tâm phụ thuộc vào line-height, thì có thể chỉ định giá trị cố định như là`px`
 
-Photoshopでは`行送りの数値（px）`をフォントサイズ（px）で割ったものを`line-height`に指定します。
+Trong Photoshop, `line-height` được chỉ định bằng cách chia` số khoảng cách dòng (px) `cho kích thước phông chữ (px).
 
+## Rule SASS(SCSS)
 
-## SASS(SCSS)ルール
+### Tên biến số Sass sẽ viết bằng Snake case
 
-### Sassの変数名はスネークケースで書く
+Ko sử dụng hyphen, mà giống như $some_sass_vars, sẽ chỉ định biến số bằng snake case của Underscore delimiter + lowercase
 
-ハイフンは使わず、$some_sass_varsといったような、アンダースコア区切り＋小文字のスネークケースで変数を定義します。
-
-クラス名と区別をつけやすくして検索の時に邪魔にならないようにするためと、SASSだと「-」が演算子としても機能するので、それとの区別をつけて意図しない演算やエラーの発生を防ぐためです。
-
-
-### @extendは避ける
-
-`@extend` は、extend元のスタイルを変更した時に影響する範囲が見えず、意図しない部分に影響が出たりするのでできる限り避けます。
+Để dễ dàng phân chia với class name và tránh rắc rối khi tìm kiếm, nhưng bởi vì SASS hoạt động như 1 phép tính toán, thêm phân chia vào đó sẽ tránh phát sinh lỗi và những tính toán không mong muốn
 
 
-### mixinも極力避ける
+### Tránh @extend
 
-便利なのですが、本来構造設計をしたほうがいいものと、`mixin`が混ざってくるので、できる限り使用しないようにします。1つのclassモジュールにしてモデファイヤ及びカスケードしてオーバーライドしたほうがいい場合が多いと思います。
+`@extend` ko thấy dc phạm vi ảnh hưởng khi đã update style của extend ban đầu, vì sẽ gây ảnh hưởng đến những phần ko mong muốn nên trong khả năng có thể hãy tránh điều này.
 
-後述のレスポンシブル対応のためのユーティリティなどは除きます。
+### mixin cũng tránh càng nhiều càng tốt
 
+Tuy là tiện dụng, nhưng nên thiết kế theo cấu trúc ban đầu, và `mixin` rất dễ nhầm lẫn nên trong khả năng có thể hãy tránh sử dụng. Với 1 class module, thì tôi nghĩ sẽ có rất nhiều trường hợp nên thực hiện modify và cascade,  sau đó thì overwrite.
 
-# CSSフォーマットルール
+Sẽ xóa utility để đối ứng responsive về sau
 
-### CSS（SCSS）フォーマット
+# CSS format rule
 
-VSCのフォーマッターで保存時にほぼ自動化できます。
+### CSS（SCSS）format
+Khi lưu bằng format của VSC thì hầu như được làm tự động.
 
-- プロパティの前にスペースを2つ(インデント)
-- クロージングブレース（`}`）は独立した行に
-- それぞれのセレクタと宣言に対して必ず新しい行を開始すること。
-- 末尾の空白は削除する
-- プロパティ(:)の後にスペースをひとつ入れる
-- 宣言ブロックの区切りに改行を入れる
-- 値が「0」の場合単位は省略する
-- 0.5などの小数点のあたまの0を省略しない（.5は見ずらいので）
-- HEX形式のカラーコードは小文字、3文字で表記できるものは3文字にする
-- CSSプロパティの記載順序(後述)
-- ベンダープレフィックスは手動で書かかず、タスクランナーに任せる
-- !importantは原則禁止（utilityレイヤーはOK）
-- 意味のある単語の省略はなるべくしない
-
+- 2 space trước property (Indent)
+- Dấu ngoặc nhọn sẽ ở dòng riêng biệt（`}`）
+- Đối với từng khai báo và selector thì bắt buộc phải bắt đầu dòng mới
+- Bỏ khoảng trống cuối dòng
+- Thêm vào 1 space phía sau property (:)
+- Cách hàng vào phần kết thúc câu của block khai báo.
+- Giản lược đơn vị trường hợp giá trị là「0」
+- Không giản lược số 0 ở đầu của chữ số thập phân như là 0.5（vì .5 thì hơi khó nhìn）
+- Color code định dạng HEX thấp hơn, những mã có thể được viết bằng 3 ký tự là 3 ký tự
+- Thứ tự mô tả của CSS Property ( đề cập sau )
+- Vendor prefix thì sẽ ko được viết bằng tay mà sẽ giao cho Task runner
+-  Không sử dụng !important（utility OK）
+- Cố gắng tránh ko thực hiện việc giản lược những từ đơn có ý nghĩa 
 ```scss
 /* Good */
 .c-foo,
@@ -183,56 +167,55 @@ VSCのフォーマッターで保存時にほぼ自動化できます。
 }
 
 /* Bad */
-.c-foo, .c-foo.bar, .c-baz{ //クラスは複数行にする,カッコ前のスペースがない
+Các class như .c-foo, .c-foo.bar, .c-baz{ // sẽ làm nhiều dòng, và ko có space trước dấu ngoặc
     display: block;
-    backgrouond-color: rgba(0,0,0,0.7); //カンマの後スペース入れる
-    margin-right: 0px; //0は単位なし
-    margin-left:auto; //コロンの後スペースがない
-    $_padding: 1em;} //変数はブロック内の上、カッコは単行に
-```
+    backgrouond-color: rgba(0,0,0,0.7); //    thêm space vào sau dấu phẩy
+    margin-right: 0px; //0     thì không có đơn vị
+    margin-left:auto; //         thì không có space sau dấu : 
+    $_padding: 1em;} //        là biến số phía trên ở trong block,  dấu ngoặc thêm vào dòng đơn ```
 
 
-### CSSプロパティの記載順序
+### Thứ tự viết CSS property
 
-Mozila/W3Cで推奨されているような意味のある順を推奨します。
-ルールとしては `stylelint-config-property-sort-order-smacss` を使用します。
-VSCで保存時自動化するようお願いします。
+Khuyến khích thứ tự mà có ý nghĩa như là Mozila/W3C
+Sử dụng rule là `stylelint-config-property-sort-order-smacss`
+Vui lòng tự động khi lưu bằng VSC
 
 [stylelint-config-property-sort-order-smacss](https://github.com/cahamilton/css-property-sort-order-smacss/blob/v2.1.1/index.js)
 
 
 
-# CSS構造化設計
+# Thiết kế cấu trúc CSS
 
-## 構造化は FLOCSS を参考に独自ルールをプラス
+## Để cấu trúc, hãy thêm các quy tắc riêng biệt tham khảo FLOCSS
 
-[FLOCSS](https://github.com/hiloki/flocss)は`Foundation`、`Layout`、`Object`の3つのレイヤーから構成され、`Object`レイヤーはさらに`Component`、`Project`、`Utility`の3つの子レイヤーに分けて構造化します。
-構造の名前は、BEM記法（独自ルールプラス）とレイヤー分類した接頭辞（プレフィックス）でクラス名をつけ、SASSの場合はさらにファイル名で分類をしていきます。
+ [FLOCSS](https://github.com/hiloki/flocss) được cấu trúc từ 3 layer là `Foundation`、`Layout`、`Object`, `Object` layer thì sẽ phân chia và cấu trúc thành 3 đó là `Component`、`Project`、`Utility`
 
+Tên của cấu trúc này sẽ thêm class name bằng tiếp đầu ngữ (prefix) đã được phân loại layer và viết BEM (rule thêm vào riêng), trong trường hợp là SASS thì đang phân loại bằng file name
 
-## BEM記法+独自ルール
+## Viết BEM + Rule riêng
 
-BEM記法をベースにするが、下記の記事を採用し、かなり独自ルールをプラスします。
+Viết BEM trên nguyên tắc sẽ sử dụng bài viết dưới đây và thêm rule riêng
 
-以下をそのまま採用させていただきます。
->[CSS 設計における Modifier の記述ルールの最適化](https://qiita.com/okamoai/items/1d2c9018a79e4dee69f4)
+Dưới đây sẽ sử dụng y như vậy 
+>[ Tối ưu hóa rule viết Modifier trong thiết kế CSS](https://qiita.com/okamoai/items/1d2c9018a79e4dee69f4)
 
-**BEM＋独自ルールまとめ**
+**Tổng hợp BEM＋ Rule riêng**
 
 ## css: `.prefix-blockName_elementName.modifier`
 
 * .`prefix-`blockName_elementName.modifier
-  * Block には必ずレイヤープレフィックスを付与
+  * Bắt buộc thêm Layer prefix vào Block 
 * .prefix-`blockName`_elementName.modifier
-  * Blockは lowerCamelCase にする
-  * class記述は原則必ず prefix-blockName(c-button) から始まる
+  * Block sẽ là lowerCamelCase
+  * Viết class bắt buộc phải bắt đầu từ prefix-blockName(c-button) 
 * .prefix-blockName`_elementName`.modifier
-  * Elementは lowerCamelCase にし、1文字のアンダースコアでつなげる
-* .prefix-blockName_elementName`.modifier`
-  * Modifier と State 記述（例：is-active）は `--` でつなげずマルチクラス記法
+  * Element sẽ là  lowerCamelCase ,  liên kết bằng  underscore của 1 ký tự
+ * .prefix-blockName_elementName`.modifier`
+  * Viết Modifier và State（ví dụ：is-active）thì sẽ theo cách multiple class liên kết bằng `--` 
 
 
-HTML記述例
+Ví dụ về cách viết HTML
 ```html
 <nav class="c-localMenu">
   <h2 class="c-localMenu_title">メニュー見出し</h2>
@@ -243,7 +226,7 @@ HTML記述例
   </ul>
 </nav>
 ```
-SCSS記述例
+Ví dụ về cách viết SCSS例
 ```scss
 .c-localMenu { // block
   // element
@@ -257,81 +240,81 @@ SCSS記述例
 }
 ```
 
-## レイヤー/プレフィックスについて
+## Về layer/Prefix
 
 * Foundation
-    - reset.css や normalize.css などの リセット系CSS 及び、要素セレクタの基本スタイル を定義します。
-    - 基本的にこのレイヤーの編集はほぼ発生しないと思われます。
-
+    - Định nghĩa style cơ bản của element selector và CSS liên quan đến reset như là reset.css và normalize.css
+    - Hầu như là không phát sinh việc edit của layer này
+ 
 * Layout [ `l-` ]
-  * ヘッダー、フッター、サイドバー、メインエリアのように、`サイトで共通した入れ物のブロックの単位` を定義します。入れ物です。ほぼ`width`と`padding`の設定のみとなる思います。
-    - 本レイヤー自体にはコンテンツのスタイルを含めないように（例えば、ヘッダーの場合、エリアのみの定義で中身は `p-` のプレジェクトレイヤーで定義）します。
-  * 一つのファイルにまとめてもかまいません
+  * Định nghĩa đơn vị của block đã được thêm vào chung trong site như là header, footer, side bar, main area
+    - Sẽ thực hiện mà ko bao gồm style của content trong chính layer đó (ví dụ: trường hợp là header thì nội dung định nghĩa chỉ trong area thôi sẽ được định nghĩa bằng Project layer của `p-`)
+  *Collect hết lại thành 1 file thì cug ko vấn đề gì
 
 * Object
 
   * Component [ `c-` ]
-    - `再利用できる機能単位`で分割したモジュールのスタイルを定義します。
-    - `常にセットで使うもの`に関しては多少大きめのパーツでも一つのComponentにまとめます。
+    - Định nghĩa style của module đã phân chia theo “đơn vị chức năng có thể tái sử dụng”
+    - Liên quan đến “những thứ sẽ sử dụng bằng set bình thường” thì cho dù có thể là path lớn đi nữa những vẫn collect lại thành 1 cái trong component
 
   * Project [ `p-` ]
-    - 大きめの再利用できるブロックを定義します。
-    - 主にComponentの配置に使います
+    - Định nghĩa block mà có thể tái sử dụng độ lớn
+    - Chủ yếu là sử dụng trong việc bố trí Component
 
   * Utility [ `u-` ]
-    - ComponentとProjectレイヤーのObjectのモディファイアで解決することが難しい、`わずかなスタイルの調整のための便利クラス`、`補足アニメーション` などを定義します。
-    - 確実にスタイルを適応させるために!importantを使用してもよいです。
-    - HTMLでスタイルを設定することと同意となるので、なるべく使用を控えるような設計をしてください。
+    - Hơi khó để quyết định bằng Modifier của Object trong Component và Project layer, và sẽ định nghĩa như là “bổ sung animation”, “class tiện để điều chỉnh một chút sylte”
+    - Để tương thích với style trong thực tế thì sử dụng !important cũng được.
+    - Vì đồng ý với việc setting style bằng HTML nên hãy thiết kế để hạn chế sử dụng nó càng nhiều càng tốt.
 
 * State [ `is-` ]
-    - `is-disabled`、`is-selected`、`is-active` など状態変更を伴う要素に付与しまう。単体でのCSS定義はしません。
+    - Cung cấp cho các phần tử dựa trên sự thay đổi như là `is-disabled`、`is-selected`、`is-active` . Không định nghĩa CSS đơn.
 
-* Page（そのページしか使わない定義）
-    - ページ特有の指定、もしくは未整理のものをページにつき1ファイル作成し、そのファイルの中にすべてのレイヤーを記載します。
-    - プロジェクトによっては、cssを一つにまとめたい場合もあるかと思いますのでこのpage分離は必須ではありません。
-    - 原則、もし、このレイヤーで同じパターンが2箇所で使われていたら、共通の component,Projectレイヤーなどでまとめられないか検討してください。
+* Page（Định nghĩa chỉ sử dụng page đó）
+    - Với mỗi page mà chưa điều chỉnh hoặc là chỉ định đặc tính của page thì sẽ tạo 1 file, sẽ viết toàn bộ layer vào trong file đó
+    - Tùy thuộc vào project mà cũng có trường hợp muốn collect css làm thành 1 nên ko nhất thiết phải phân chia page này
+    - Theo nguyên tắc, nếu như pattern giống nhau mà được sử dụng ở 2 nơi bằng 1 layer, thì hãy xem xét xem thử có thể collect bằng layer chung như  component,Project hay ko
 
-- **Javascript** [ `ji_`,`jc_` ]
-    - JavascriptのDOMセレクト、トリガー指定で使用します。スタイル定義は禁止です。
-    - `ji_` はid箇所、`jc_` はclass箇所で使用します。
-    - ハイフンは使わず、`jc_trigger_open_menu` といったような、アンダースコア区切り＋小文字のスネークケースで変数を定義します。
+- **Javascript** [ `ji_`,`jc_` ]
+    - Sử dụng bằng việc định nghĩa DOM selector của Javascript, định nghĩa trigger. Không cho phép định nghĩa style
+    - `ji_`  sẽ sử dụng ở chỗ id còn  `jc_` sẽ sử dụng ở chỗ class
+    - Không sử dụng hyphen, mà sẽ định nghĩa biến số bằng Snake case của dấu phân cách gạch dưới + lowercase gọi là `jc_trigger_open_menu`
 
-### レイヤープレフィックス命名規則
+###  Nguyên tắc đặt tên layer prefix
 
-| 接頭辞 |              用途               |         使用例         |
+| Prefix |              Cách sử dụng               |         Ví dụ sử dụng         |
 |:------:|:-------------------------------:|:----------------------:|
-|  ji_   |  javascriptの対象となるid要素   |  `id="ji_move_icon"`   |
-|  jc_   | javascriptの対象となるclass要素 | `class="jc_move_icon"` |
-|   l-   |    Layoutレイヤー（FLOCSS）     |   `class="l-header"`   |
-|   c-   |   Componentレイヤー（FLOCSS）   |   `class="c-button"`   |
-|   p-   |    Projectレイヤー（FLOCSS）    |  `class="p-userList"`  |
-|   u-   |    Utilityレイヤー（FLOCSS）    |  `class="u-clearfix"`  |
-|  is-   |  State要素(状態変更を伴う要素)  |  `class="is-active"`   |
+|  ji_   |  Với id element là đối tượng của javascript   |  `id="ji_move_icon"`   |
+|  jc_   | Với class element là đối tượng của javascript | `class="jc_move_icon"` |
+|   l-   |    Layout layer（FLOCSS）     |   `class="l-header"`   |
+|   c-   |   Component layer（FLOCSS）   |   `class="c-button"`   |
+|   p-   |    Project layer（FLOCSS）    |  `class="p-userList"`  |
+|   u-   |    Utility layer（FLOCSS）    |  `class="u-clearfix"`  |
+|  is-   |  State element (element theo trạng thái thay đổi)  |  `class="is-active"`   |
 
 
-## FLOCSS設計の悩みどころ:ComponentとProject
+## Những chỗ khó khăn trong việc thiết kế FLOCSS : Component và Project
 
-`FLOCSS`は悩みどころに`Ccomponent`と`Project`の判別がありますが、特別なルールは設けないことにします。
-最小限の単位は`Ccomponent`、`Ccomponent`を配置する再利用ブロックは`Project`くらいの考えで、自由に設計してください。
+Vấn đề của `FLOCSS` là nó phân biệt giữa `Ccomponent` và `Project` nhưng lại ko đặt ra bất kì qui tắc đặc biệt nào
 
-## カスケーディング（上書き）
+Đơn vị tối thiểu là `Component`,  Block mà tái sử dụng cho việc bố trí `Component`, thì hãy thiết kế tự do theo từng project
 
-**許容OK**
-- ProjectレイヤーがComponentレイヤーの上書き
+## Xếp tầng（Viết đè）
 
-**禁止NG**
-- Projectレイヤー同士、Componentレイヤー同士
+**Cho phép OK**
+- Project layer, thì sẽ viết đè Component layer
 
-ただし、上書きは複雑になりがちなので、原則、`Component` の `Modifier` で解決してください。
+**Không được NG**
+- Project layer、Component layer
 
+Tuy nhiên, viết đề lên thì khá là phức tạp nên trên nguyên tắc sẽ giải quyết bằng `Modifier`  của `Component`
 
-禁止パターン（同じレイヤー）例
+Ví dụ về việc ko được sử dụng（layer giống nhau）
 ```html
 <div class="c-button">送信</div>
-<div class="c-button"><div class="c-icon"></div>送信</div>
+<div class="c-button"><div class="c-icon"></div>送信</div>
 
 <div class="p-form">
-  <div class="p-button"><div class="c-icon"></div>送信</div>
+  <div class="p-button"><div class="c-icon"></div>送信</div>
 </div>
 ```
 ```css
@@ -340,12 +323,12 @@ SCSS記述例
 .p-form .p-button { }
 ```
 
-許容パターン（異なるレイヤー）
+Ví dụ có thể được dùng（layer khác nhau）
 ```html
 <body class="page-user">
 
   <div class="p-form">
-    <div class="p-form_label">同意して送信して下さい</div>
+    <div class="p-form_label">同意して送信して下さい</div>
     <input type="checkbox" class="c-check">確認</div>
     <div class="c-button">送信</div>
   </div>
@@ -353,17 +336,17 @@ SCSS記述例
 </body>
 ```
 ```css
-/* カスケーディング可 */
+/* Có thể xếp tầng */
 .p-form .c-button {
   margin-left: 30px;
 }
-.page-user .p-form { }
+.page-user .p-form { }
 ```
 
 
-## ファイル・ディレクトリ構成（SCSS）
+## Cấu trúc file – diretory（SCSS）
 
-ファイルの構成は`FLOCSS`をベースにします。
+Cấu trúc file căn cứ dựa trên `FLOCSS`
 
 ```
 assets/
@@ -382,10 +365,9 @@ assets/
     ├── page_xxx.scss
 ```
 
-基本的に app.scss で出力しますが、ページ特有（モジュール化しないもの）のスタイルは、別途 page_xxx.scssで出力します。
+Về cơ bản, sẽ xuất bằng app.scss nhưng việc style theo đặc tính của page (những cái ko thực hiện module hóa) thì sẽ xuất riêng bằng page_xxx.scss
 
-下記の例のようにcomponent、project、pagesのディレクトリには、原則1つのBlockにつき1ファイルを作成します。
-
+Tạo 1 file cho mỗi 1 block ở directory của component、project、pages giống với ví dụ dưới đây
 ```
 ├── foundation
 │   ├── base
@@ -415,7 +397,7 @@ assets/
 ├── page_index.scss
 ├── page_login.scss
 
-出力ファイル(例)
+File output (ví dụ)
 public/css/
     ├── app.css
     ├── page_index.css
@@ -423,4 +405,4 @@ public/css/
 
 ```
 
-モジュール単位でファイルを分割することによって、ページ単位またはプロジェクト単位でのモジュールの追加・削除の管理が容易になります。`utility`と`variable`,`layout`は一つのファイルにまとめてもいいと思います。
+Tùy thuộc vào việc phân chia file theo đơn vị module, mà việc quản lý các thao tác như thêm vào – xóa đi mudule theo đơn vị là page hoặc đơn vị là project thì sẽ trở nên đơn giản hơn. `utility` và `variable`,`layout` thì collect lại thành 1 file cũng được.
