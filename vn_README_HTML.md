@@ -140,42 +140,38 @@ google thông báo đã hết support nên không cần viết gì
 
 
 ## Cách include file JS
-JSの読み込みは、bodyの最下部はやめて、head内に記述し、以下2種類のdeferかasync属性を付与してください。
+Khi include JS, không thêm nó vào phần cuối của body, mà hãy viết nó vào head, và thêm hai loại thuộc tính defer hoặc async vào.
 * `defer`: `<script src="xxx.js" defer></script>`
-  * 今までbodyの最下部でincludeしているものはすべて置き換えることができます。しかも速いです。
+  * Với cách này có thể thay đổi được cách include mà trước giờ đặt ở body, và nó mang lại tốc độ nhanh hơn.
 * `async`: `<script src="xxx.js" async></script>`
-  * こちらは完全非同期で読み込むので速いのですが、順番が保証されません。完全に独立したjsのみだけに使用してください。
+  * Với cách này vì không hoàn toàn đồng bộ nên tốc độ nhanh, nhưng thứ tự không được đảm bảo. Nên chỉ sử dụng cho các js hoàn toàn độc lập.
 
 
-## 外部サイトリンクを `_blank` で開く場合
-
-セキュリティの観点から、以下の`noopener` `noreferrer`を付与してください
+## Trường hợp mở link web ngoài bằng `_blank`
+Hãy thêm `noopener` `noreferrer` để tăng tính security 
 `<a href="{URL}" target="_blank" rel="noopener noreferrer">LINK TEXT</a>`
 
 
-## 画像にalt属性を必ず入れる
-  背景画像のような意味のない画像は対象外
+## Phải thêm thuộc tính alt vào image
+  Trừ các hình ảnh không có ý nghĩa, chẳng hạn như hình nền
+
+## Cố gắng lưu image có thể tạo thành vector dạng SVG
+  Khi lưu dạng SVG thì không cần phải làm với PC, SP và Retina 2x nữa
+
+## Cố gắng sử dụng WebIconFont
+Trao đổi với designer, chỉ khi không cần phải design
+
+## Các giải pháp cache CSS/JS
+* Để khách hàng (user) không phải tải lại trình duyệt mỗi lần, thì hãy thêm parameter vào sau tên file được include
+ Ví dụ: `file.css? V = 202010090954`
+* Trường hợp có một số HTML template engine hoặc php được tích hợp sẵn, hãy tự động hóa nó.
 
 
-## ベクトルにできる画像はなるべくSVGで保存する
-SVGにすると、PC用、SP用、レティナ2xの対応をしなくても良くなります。
+# HTML Format rules
 
+## Indent 2 spaces
 
-## アイコンはなるべくWebIconFontを利用する
-
-デザイナと相談、わざわざデザインしなくてもいい場合のみ
-
-
-## CSS/JS キャッシュの対策
-* お客さま（ユーザー）に毎回ブラウザをスーパーリロードする必要がないように、できる限りインクルードするファイル名の後ろに一意のパラメータを付与する ex.`file.css?v=202010090954`
-* なにかしらHTMLテンプレートエンジンを組み込んでいる、もしくはphpの場合、自動化してください
-
-
-# HTMLフォーマットルール
-
-## インデントはスペース2つ
-
-## 単一タグ要素は閉じない。
+## Single tag elements không close
   ```html
     <br/> // NG
     <br> // OK
@@ -184,7 +180,7 @@ SVGにすると、PC用、SP用、レティナ2xの対応をしなくても良�
     <img src="xxx"> // OK
   ```
 
-## スタイルシートとスクリプトのtype属性を省略する。
+## Giản lược type của stylesheet và script
 ```html
 <!-- Not recommended -->
 <script src="https://www.google.com/xxx.js" type="text/javascript"></script>
@@ -193,8 +189,8 @@ SVGにすると、PC用、SP用、レティナ2xの対応をしなくても良�
 <script src="https://www.google.com/xxx.js"></script>
 ```
 
-## 画像,CSS,JSなどの参照ファイル名ルール
-原則すべて小文字、セパレータは `_`(under score)を使う（`-`はNG）
+## Tham khảo rules file name của image, CSS, jS
+Nguyên tắc tất cả chữ nhỏ, selector thì sử dụng `_`(under score)（`-` thì NG）
 
 ```bash
 // NG
