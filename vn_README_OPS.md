@@ -12,24 +12,17 @@ Về nguyên tắc, môi trường phát triển sử dụng `SASS(SCSS)` để 
   * CSS property order
   * Đặt CSS Vendor prefix
   * dev server auto run, khi update auto hiển thị
-  * CSSキャッシュバスター自動化（cssファイルの後ろにハッシュを付与)
-CSS cash buster tự động hóa (css file thêm hash vào phía sau)
-* package managerは`yarn`を推奨します
-Package manager `yarn` được khuyến khích
-* 開発要件によりテンプレートを制作する予定です
-Tùy theo yêu cầu phát triển template sẽ được sản xuất
+  * CSS Cache-buster automation（Phía sau file css thêm hash)
+* Package manager đề xuất dùng `yarn`
+* Dự kiến thực hiện template theo theo yêu cầu phát triển
   * gulp 
-    * 静的HTML/CSSのみ（本リポジトリに入っています。）：
-Chỉ HTML/ CSS tĩnh (trong kho này)
+    * Chỉ HTML/ CSS tĩnh (trong repo này)：
     * Wordpress
   * WebPack
     * Vue/Nuxt.js
 
-## ブラウザ対象の設定(browserslist)
-## Cài đặt mục tiêu browser
-package.jsonの以下をプロジェクトごとに設定してください。
-下記はデフォルト設定です。
- Hãy đặt package.json  trong phần sau project.
+## Cài đặt browser được yêu cầu (browserslist)
+Hãy set dưới package.json cho mỗi project.
 Dưới đây là các cấu hình default 
 
 ```js:package.json
@@ -40,109 +33,76 @@ Dưới đây là các cấu hình default
 ...
 ```
 
-対応ブラウザは以下のコマンドで確認できます。
+Browser yêu cầu xử lý có thể confirm bằng command bên dưới.
 ```bash
 npx browserslist ">2% in JP, ie >= 11, ios_saf >= 12, Firefox ESR"
 ```
 
-# VSC Editor (Visual Source Code) 環境
-Môi trường VSC Editor (Visual Source Code)
+# Môi trường VSC Editor (Visual Source Code)
 
-## EditorConfigを使ってコーディングスタイルを統一
+## Dùng EditorConfig để thống nhất coding style
 
-インデントや改行コードなど、コーディングスタイルを統一するための仕組みです。
-Indent,  xuống dòng,… Coding style là một cơ chế để thống nhất.
-EditorConfigが有効になっているエディタは、プロジェクトディレクトリに`.editorconfig`があればそのディレクトリ以下のファイルすべてにコーディングスタイルを適用します。Gitの管理対象に加えます。
-Editor với EditorConfig được enabled, nếu `.editorconfig`có trong project directory hãy áp dụng Coding style cho tất cả file trong thư mục đó
+Hệ thống để thống nhất coding style như Indent, xuống dòng,...
+Editor enabled EditorConfig, nếu `.editorconfig` có trong project directory áp dụng Coding style cho tất cả file trong thư mục đó. Thêm đối tượng quản lý Git.
 
-## vscodeの設定ファイルをgitで共有
-### Chia sẻ file cấu hình vscode với git
-プロジェクトのルートに`.vscode`フォルダとsettings.jsonを置きgitで共有します
-Đặt folder `.vscode` và  settings.jsonon ở Project root  vàchia sẻ với gift
-## VSC拡張機能 / 設定
-###VCS Extensions / Settings
-### 必須拡張機能 / 設定
-Required extensions / settings
+## Chia sẻ file cấu hình vscode trong git
+Đặt folder `.vscode` và  settings.json vào Project root và share bằng git.
+## VCS Extensions / Settings
+
+### Required extensions / settings
 * EditorConfig for VS Code
-
-* EditorConfigを理解する拡張機能
-Các tiện ích mở trộng hiểu EditorConfig
+  * Các extension hiểu EditorConfig
 * ESLint
-* JavaScript のリアルタイム構文チェックツール拡張機能
-Tiện ích mở rộng check tool cú pháp realtime 
-* HTML/CSSコーディング時は使いませんが、後々のため入れておいたほうが良いです
- Không sử dụng  nó khi coding HTML/CSS , tuy nhiên sẽ tốt hơn là đưa nó để vào sau
+  * Extension check tool cú pháp realtime JS
+  * Không sử dụng khi code HTML/CSS, tuy nhiên đưa vào sau sẽ tốt hơn.
 * stylelint
-
-* CSSののリアルタイム構文チェックツール拡張機能
-Tiện ích mở rộng check tool cúp pháp CSS real time 
-
-* 複数あるのでpublishersがstylelintのものをインストール
-Bởi vì có nhiều publishers, installation stylelint’s
+  * Extension check tool cú pháp realtime CSS
+  * Vì có nhiều nên publishers cài đặt các thứ có stylelint
 * Vetur, Vue 2 Snippets, vuetify-vscode
-
-* Vue.js のコーディング時必須
-Thời gian cần thiết / ràng buộc khi coding Vue.js
+  * Cần khi code Vue.js
 * WordPress Snippet
-* Wordpress のコーディング時必須
-Thời gian cần thiết/ ràng buộc khi coding Wordpress
+  * Cần khi code Wordpress
 * SVG Viewer
-  * SVG画像のプレビュー
-Preview hình ảnh SVG
-### 推奨拡張機能 / 設定
-Recommended extensions / settings
+  * Preview hình ảnh SVG
+### Recommended extensions / settings
 
 * SCSS IntelliSense
-* SCSSの`variables`, `mixins`, `functions`を補完してくれる
-Bổ sung `variables`, `mixins`, `functions` trong SCSS
+  * Bổ sung `variables`, `mixins`, `functions` trong SCSS
 * IntelliSense for CSS class names in HTML
-* HTMLの`class`名を補完してくれる
-Bổ sung tên `class` trong HTML
-* ただし巨大なプロジェクトの場合重いかも
-Tuy nhiên nó có thể khá nặng nề với project
+  * Bổ sung tên `class` trong HTML
+  * Tuy nhiên nó có thể khá nặng với project lớn
 * Bracket Pair Colorizer
-* (), [], {} などの括弧の開始-閉じるの組み合わせを色を変えて見やすくする。
-Thay đổi màu sắc của các dấu ngoặc để dễ nhìn hơn
+  * (), [], {} Thay đổi màu sắc của các dấu ngoặc để dễ nhìn hơn
 * zenkaku
-* 全角スペースの可視化
-Hình dung space một cách đầy đủ
+  * Trực quan hoá space full width
 * "editor.renderWhitespace": "all"
-* 半角スペースの可視化
-Hình dung space  nửa chiều rộng
+  * Trực quan hoá space halfwidth
 * Trailing Spaces
-* 半角スペースが行末にある場合の可視化
-Hình dung nửa chiều rộng space khi nó cuối dòng
+  * Trực quan hoá trường hợp space halfwidth nằm cuối dòng
 * "editor.renderIndentGuides": true
-* 現在のインデントの縦ライン
-Lint của indent hiện tại
+  * Vertical line của indent hiện tại
 * Excel Viewer, Rainbow CSV
-* CSVのテキストを見やすくする拡張機能
-Tiện ích mở rộng giúp cho dễ đọc test của CSV
+  * Extension dễ đọc text của CSV
 * ftp-sync
-  * 保存時にftpアップロードしてくれる
-Upload ftp khi sẵn sàng
-# SASS(SCSS)ビルド環境
-#  build môi trường SASS(SCSS)
-## static 環境
-Môi trường static
-`sample_static`にサンプル環境があります。
-Có môi trường sample trong sample _static
-## WordPress 環境
+  * Upload ftp khi save
+
+# Môi trường build SASS(SCSS)
+
+## Môi trường static
+
+Có môi trường sample trong `sample_static`
+
+## Môi trường WordPress
 
 todo
 
-## Vue/Nuxt 環境
+## Môi trườnd Vue/Nuxt
 
 todo
 
-# デバッグ
-#Debug
-* スマホなどのデバイスの実機確認を必ず行う
-Đảm bảo kiểm tra các device thực tế như smartphones
-* 時間がない場合、クラウドの[Browser Stack](https://www.browserstack.com/)（契約済）を利用する。localIPでも利用する場合chromeに下記拡張機能を入れてください。
-Nếu không có thời gian, sử dụng cloud [Browser Stack](https://www.browserstack.com/)  Khi sử dụng với localIP, đặt phần mở rộng sau vàoChrome
-https://chrome.google.com/webstore/detail/browserstack-local/mfiddfehmfdojjfdpfngagldgaaafcfo?hl=ja
+# Debug
+* Đảm bảo kiểm tra các device thực tế như smartphones
+  * Nếu không có thời gian, sử dụng cloud [Browser Stack](https://www.browserstack.com/) (Đã đăng ký) Khi sử dụng bằng localIP, đặt phần mở rộng dưới đây vào Chrome
+  https://chrome.google.com/webstore/detail/browserstack-local/mfiddfehmfdojjfdpfngagldgaaafcfo?hl=ja
 
-  * 同じwifiネットワーク内ならローカルWebをスマホ実機で確認できます。
-
-Nếu trong cùng wifi network, có thể kiểm tra local web trên smartphone.
+  * Nếu trong cùng wifi network, có thể kiểm tra dùng local web trên smartphone.
