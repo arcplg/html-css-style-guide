@@ -8,11 +8,11 @@ Trường hợp là SASS(SCSS) của gulp hoặc nuxt/Vue.js thì sẽ build b�
   * Đây là rule được viết
 * **Thiết kế cấu trúc**
   * Mặc dù tham khảo FLOCSS, nhưng đang tiến hành định nghĩa độc lập riêng
-  * **Qui tắc đặt tên Class **
+  * **Qui tắc đặt tên Class**
     - Tham khảo cách viết BEM, và thực hiện một cách đơn giản hóa. Cố gắng giảm độ chi tiết,và có  thể viết một cách flat
   * **Cascading**
      - Nếu được thì cố gắng ko viết đè
-  * **cấu trúc file – directory **
+  * **cấu trúc file – directory**
     - Về cơ bản thì sẽ phân chia directory theo từng layer, và 1 module sẽ là 1 file 
 
 # CSS style rule

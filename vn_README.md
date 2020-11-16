@@ -39,7 +39,7 @@ Lựa chọn cách thực hiện tối ưu dựa trên quy mô và chi phí củ
 Chi tiết tham khảo các file sau:
 
 ## [HTML](vn_README_HTML.md) Topic
-  * Mô tả chỗ `Sematic`
+  * Mô tả trong `Sematic`
     * Đặt tên lớp dựa trên mục đích và vai trò, không dựa trên cách nhìn hay hành động.
     * Nếu có thể thì mô tả băng tag cấu trúc HTML5 (header, nav, footer, section, article, etc...)
   * `<h1>` là 1 element trong trang và về nguyên tắc ở top page sử dụng cho tên site hay xung quanh logo icon, page khác set cho header title.
