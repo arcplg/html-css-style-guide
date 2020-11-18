@@ -143,12 +143,6 @@ a {
   background-color: #ddf;
 }
 
-.l-mainVisual {
-  display: inline-block;
-  position: relative;
-  min-width: 100%;
-}
-
 .l-topContent {
   min-width: 1000px;
   max-width: 1200px;
@@ -173,6 +167,33 @@ a {
   background-color: #e0f2ff;
 }
 
+.l-pageMainSide {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: stretch;
+}
+
+@media screen and (max-width: 768px) {
+  .l-pageMainSide {
+    display: block;
+  }
+}
+
+.l-pageMainSide .is-sidebar-right {
+  flex-direction: row;
+}
+
+.l-pageMainSide .is-sidebar-right .l-pageSidebar {
+  margin-right: 0;
+  margin-left: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .l-pageMainSide .is-sidebar-right .l-pageSidebar {
+    margin-left: 0;
+  }
+}
+
 .l-pageMain {
   flex-grow: 1;
 }
@@ -188,33 +209,6 @@ a {
   .l-pageSidebar {
     width: 100%;
     margin-right: 0;
-  }
-}
-
-.l-pageBody {
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: stretch;
-}
-
-@media screen and (max-width: 768px) {
-  .l-pageBody {
-    display: block;
-  }
-}
-
-.l-pageBody .is-sidebar-right {
-  flex-direction: row;
-}
-
-.l-pageBody .is-sidebar-right .l-pageSidebar {
-  margin-right: 0;
-  margin-left: 20px;
-}
-
-@media screen and (max-width: 768px) {
-  .l-pageBody .is-sidebar-right .l-pageSidebar {
-    margin-left: 0;
   }
 }
 

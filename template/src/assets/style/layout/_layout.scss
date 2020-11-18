@@ -19,10 +19,10 @@
 // --------------------------------
 // Topページ
 // --------------------------------
-.l-mainVisual {
-  display: inline-block;
-  position: relative;
-  min-width: 100%;
+.l-topBody {
+}
+
+.l-topMain {
 }
 
 .l-topContent {
@@ -50,27 +50,10 @@
 // --------------------------------
 // Page
 // --------------------------------
-
-.l-pageVisual {
-}
-
-.l-pageMain {
-  flex-grow: 1;
-}
-
-.l-pageSidebar {
-  flex-shrink: 0;
-  width: $pc_page_sidebar_width;
-  margin-right: $pc_page_sidebar_margin;
-  background-color: #ffd;
-
-  @include mq_down(sp) {
-    width: 100%;
-    margin-right: 0;
-  }
-}
-
 .l-pageBody {
+}
+
+.l-pageMainSide {
   display: flex;
   flex-direction: row-reverse;
   align-items: stretch;
@@ -90,6 +73,22 @@
         margin-left: 0;
       }
     }
+  }
+}
+
+.l-pageMain {
+  flex-grow: 1;
+}
+
+.l-pageSidebar {
+  flex-shrink: 0;
+  width: $pc_page_sidebar_width;
+  margin-right: $pc_page_sidebar_margin;
+  background-color: #ffd;
+
+  @include mq_down(sp) {
+    width: 100%;
+    margin-right: 0;
   }
 }
 

@@ -14,7 +14,6 @@
     * CSSプロパティ順
     * CSSベンダープリフィックス付与
   * dev server 自動起動、更新時自動表示
-  * CSSキャッシュバスター自動化（cssファイルの後ろにハッシュを付与)
 * package managerは`yarn`を推奨します
 * 開発要件によりテンプレートを制作する予定です
   * gulp
@@ -96,7 +95,7 @@ EditorConfigが有効になっているエディタは、プロジェクトデ�
 
 ## static 環境
 
-`sample_static`にサンプル環境があります。
+`template`にサンプル環境があります。
 
 ## WordPress 環境
 
