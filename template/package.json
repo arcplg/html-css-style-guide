@@ -9,7 +9,7 @@
     "gulp:sass": "gulp sass"
   },
   "browserslist": [
-    ">2% in JP, ie >= 11, ios_saf >= 12, Firefox ESR"
+    ">1% in JP, ie >= 11, ios_saf >= 12, Firefox ESR"
   ],
   "devDependencies": {
     "autoprefixer": "9.8.6",

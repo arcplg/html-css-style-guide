@@ -29,7 +29,7 @@ package.jsonの以下をプロジェクトごとに設定してください。
 ```js:package.json
 ...
 "browserslist": [
-  ">2% in JP, ie >= 11, ios_saf >= 12, Firefox ESR"
+  ">1% in JP, ie >= 11, ios_saf >= 12, Firefox ESR"
 ]
 ...
 ```
