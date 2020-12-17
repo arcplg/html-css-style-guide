@@ -146,10 +146,10 @@ https://github.com/arcplg/html-css-style-guide
     * モバイル `768px` まで : PC `769px` から
   * 幅仕様
     * モバイル `可変幅100%`
-    * PC以下の組合わせ
+    * PCモード、下記の選択
       a) `1100px` 完全固定幅（それ以下は横スクロールバー表示）
-		  a+) `xxxpx` min-width 以下は固定、それ以上は可変幅
-		  a+) `xxxpx` max-width まで可変幅、それ以上は固定
+		  b) `xxxpx` min-width 以下は固定、それ以上は可変幅
+		  c) `xxxpx` max-width まで可変幅、それ以上は固定
 * ブレークポイント2つ3モードの場合
   * ブレークポイント
     * モバイル `480px` まで : タブレット `481px` から `896px` まで : PC `897px` から

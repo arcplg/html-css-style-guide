@@ -144,7 +144,7 @@ googleは既にサポートを終了告知しているので、特別書く必�
 
 
 ## JSファイルのinclude方法
-JSの読み込みは、bodyの最下部はやめて、head内に記述し、以下2種類のdeferかasync属性を付与してください。
+JSの読み込みは、bodyの最下部はやめて、head内に記述し、以下2種類のdeferかasync属性の付与を検討してください。
 * `defer`: `<script src="xxx.js" defer></script>`
   * 今までbodyの最下部でincludeしているものはすべて置き換えることができます。しかも速いです。
 * `async`: `<script src="xxx.js" async></script>`
