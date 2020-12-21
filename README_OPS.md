@@ -15,6 +15,8 @@
     * CSSベンダープリフィックス付与
   * dev server 自動起動、更新時自動表示
 * package managerは`yarn`を推奨します
+* `node.js`バージョン自動切替
+  node.jsのバージョンはプロジェクトごとに違うため、`nodenv`の自動切り替えを推奨します。後述
 * 開発要件によりテンプレートを制作する予定です
   * gulp
     * 静的HTML/CSSのみ（本リポジトリに入っています。）：
@@ -89,6 +91,64 @@ EditorConfigが有効になっているエディタは、プロジェクトデ�
   * CSVのテキストを見やすくする拡張機能
 * ftp-sync
   * 保存時にftpアップロードしてくれる
+
+# node.jsバージョン自動切替
+nodenvをインストールして、フォルダごとに`.node-version`を作成することで自動切替ができるようになります。
+
+
+## anyenvのインストール
+```bash
+$ git clone https://github.com/anyenv/anyenv ~/.anyenv
+$ echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> ~/.bash_profile
+$ echo 'eval "$(anyenv init -)"' >> ~/.bash_profile
+$ exec $SHELL -l
+
+$ anyenv install --init
+$ exec $SHELL -l
+```
+
+## nodenvのインストール
+```bash
+$ anyenv install nodenv
+$ exec $SHELL -l
+$ anyenv versions
+nodenv:
+Warning: no Node detected on the system
+```
+
+## nodenvで nodeの各バージョンをインストール
+
+8系、10系、12系、14系の最新版がおすすめです。
+
+```bash
+$ nodenv install 8.17.0
+$ nodenv install 10.23.0
+$ nodenv install 12.18.2
+$ nodenv install 14.15.3
+$ exec $SHELL -l
+// 確認
+$ anyenv versions
+```
+
+## デフォルトバージョン設定
+```
+$ nodenv global 8.17.0
+確認
+$ nodenv versions
+  system
+* 8.17.0 (...)
+  10.23.0
+  12.18.2
+  14.15.3
+```
+
+## フォルダごとのバージョン設定
+```
+$ nodenv local 14.15.3
+
+確認
+$ nodenv versions
+```
 
 # SASS(SCSS)ビルド環境
 
