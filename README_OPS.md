@@ -118,16 +118,20 @@ Warning: no Node detected on the system
 
 ## nodenvで nodeの各バージョンをインストール
 
-8系、10系、12系、14系の最新版がおすすめです。
-
 ```bash
 $ nodenv install 8.17.0
 $ nodenv install 10.23.0
 $ nodenv install 12.18.2
 $ nodenv install 14.15.3
+$ nodenv install 16.9.0
 $ exec $SHELL -l
 // 確認
 $ anyenv versions
+```
+### 目的のバージョンがない場合
+バージョンリストを最新にしてください
+```
+git -C $HOME/.anyenv/envs/nodenv/plugins/node-build pull
 ```
 
 ## デフォルトバージョン設定
